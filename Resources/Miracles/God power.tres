@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MiracleDefinition" load_steps=3 format=3 uid="uid://ckdc32ptfjhx6"]
+
+[ext_resource type="Resource" uid="uid://bs5iwc5lsdu0r" path="res://Resources/Effects/Add_1000_Followers.tres" id="1_bkpio"]
+[ext_resource type="Script" uid="uid://cfn3mx12xism5" path="res://Scripts/Core/MiracleDefinition.cs" id="3_oqu5j"]
+
+[resource]
+script = ExtResource("3_oqu5j")
+Name = "GOD POWER"
+FaithCost = 1.0
+FollowersRequired = 0
+Effects = Array[Resource]([ExtResource("1_bkpio")])
+metadata/_custom_type_script = "uid://cfn3mx12xism5"

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd4hc5b87uyqm"]
+
+[ext_resource type="Script" uid="uid://cj5libcgnhjml" path="res://Scripts/Follower.cs" id="1_22ax8"]
+[ext_resource type="Texture2D" uid="uid://clnujxe12l86u" path="res://Sprites/Hut.png" id="2_xvtw0"]
+
+[node name="HutTier2" type="Node2D"]
+script = ExtResource("1_22ax8")
+metadata/_custom_type_script = "uid://cj5libcgnhjml"
+
+[node name="Hut" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_xvtw0")
+
+[node name="Hut2" type="Sprite2D" parent="."]
+position = Vector2(27, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_xvtw0")

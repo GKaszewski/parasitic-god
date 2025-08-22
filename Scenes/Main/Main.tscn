@@ -1,0 +1,229 @@
+[gd_scene load_steps=18 format=3 uid="uid://bfil8sd154327"]
+
+[ext_resource type="Script" uid="uid://t71ewkpa5uqs" path="res://Scenes/Main/Main.cs" id="1_p8rbg"]
+[ext_resource type="Script" uid="uid://b77vh831r1e3c" path="res://Scenes/Main/MiraclePanel.cs" id="2_hcu3t"]
+[ext_resource type="PackedScene" uid="uid://rj1fsdlhju5y" path="res://Scenes/Main/miracle_button.tscn" id="3_qdkat"]
+[ext_resource type="Texture2D" uid="uid://dg6ac3jb1366r" path="res://Sprites/globe.svg" id="4_i3fi7"]
+[ext_resource type="PackedScene" uid="uid://be5d0d3aweg0l" path="res://Scenes/Huts/HutMarker.tscn" id="6_cv8e0"]
+[ext_resource type="Script" uid="uid://dj2wyrq07gfp2" path="res://Scripts/PopulationVisualizer.cs" id="8_cv8e0"]
+[ext_resource type="Resource" uid="uid://8ooxfo2wdbhu" path="res://Resources/Tiers/Followers/follower_tier_1.tres" id="9_hkvnm"]
+[ext_resource type="Shader" uid="uid://bf8nk145fjkgh" path="res://Shaders/corruption_shader.gdshader" id="9_wgovn"]
+[ext_resource type="Resource" uid="uid://cejeb3467iiyl" path="res://Resources/Tiers/Followers/follower_tier_2.tres" id="10_5ci8a"]
+[ext_resource type="PackedScene" uid="uid://cqkye7yykakns" path="res://Scenes/Followers/FollowerMarker.tscn" id="11_5ci8a"]
+[ext_resource type="Resource" uid="uid://q0rha23lx4wl" path="res://Resources/Tiers/Followers/follower_tier_3.tres" id="11_18xdc"]
+[ext_resource type="Resource" uid="uid://i1oo0q84q8ps" path="res://Resources/Tiers/Followers/follower_tier_4.tres" id="12_epx8f"]
+[ext_resource type="Resource" uid="uid://bwu8k7cyjhf8c" path="res://Resources/Tiers/Followers/follower_tier_5.tres" id="13_hcu3t"]
+[ext_resource type="Resource" uid="uid://bbkbssvptkyvh" path="res://Resources/Tiers/Huts/hut_tier_1.tres" id="14_18xdc"]
+[ext_resource type="Resource" uid="uid://co2sdpwpajjqi" path="res://Resources/Tiers/Huts/hut_tier_2.tres" id="15_epx8f"]
+[ext_resource type="Resource" uid="uid://b8k30qsd434dp" path="res://Resources/Tiers/Huts/hut_tier_3.tres" id="16_hcu3t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cv8e0"]
+shader = ExtResource("9_wgovn")
+shader_parameter/terrain_color = Color(0.152941, 0.682353, 0.376471, 1)
+shader_parameter/corrupted_color = Color(0.3, 0.1, 0.2, 1)
+shader_parameter/corruption_level = 0.0
+shader_parameter/tolerance = 0.1
+
+[node name="World" type="Node2D" node_paths=PackedStringArray("_faithLabel", "_followersLabel", "_corruptionLabel", "_miraclePanel", "_worldSprite")]
+script = ExtResource("1_p8rbg")
+_faithLabel = NodePath("UiLayer/Control/MarginContainer/Main/Top/FaithLabel")
+_followersLabel = NodePath("UiLayer/Control/MarginContainer/Main/Top/FollowersLabel")
+_corruptionLabel = NodePath("UiLayer/Control/MarginContainer/Main/Top/CorruptionLabel")
+_miraclePanel = NodePath("UiLayer/Control/MarginContainer/Main/Bottom")
+_worldSprite = NodePath("World Sprite")
+
+[node name="UiLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UiLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="UiLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Main" type="VBoxContainer" parent="UiLayer/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Top" type="HBoxContainer" parent="UiLayer/Control/MarginContainer/Main"]
+layout_mode = 2
+
+[node name="FaithLabel" type="Label" parent="UiLayer/Control/MarginContainer/Main/Top"]
+layout_mode = 2
+text = "Faith Label"
+
+[node name="FollowersLabel" type="Label" parent="UiLayer/Control/MarginContainer/Main/Top"]
+layout_mode = 2
+text = "FollowersLabel"
+
+[node name="CorruptionLabel" type="Label" parent="UiLayer/Control/MarginContainer/Main/Top"]
+layout_mode = 2
+text = "CorruptionLabel"
+
+[node name="Bottom" type="GridContainer" parent="UiLayer/Control/MarginContainer/Main"]
+layout_mode = 2
+size_flags_vertical = 6
+columns = 3
+script = ExtResource("2_hcu3t")
+_miracleButtonScene = ExtResource("3_qdkat")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="World Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_cv8e0")
+position = Vector2(-34, -25)
+scale = Vector2(2.41247, 2.41247)
+texture = ExtResource("4_i3fi7")
+metadata/_edit_lock_ = true
+
+[node name="Hut Markers" type="Node2D" parent="."]
+
+[node name="HutMarker" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(-1, -29)
+
+[node name="HutMarker2" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(124, -45)
+
+[node name="HutMarker3" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(301, -41)
+
+[node name="HutMarker4" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(392, -192)
+
+[node name="HutMarker5" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(267, -207)
+
+[node name="HutMarker6" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(418, -292)
+
+[node name="HutMarker7" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(491, -413)
+
+[node name="HutMarker8" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(613, -173)
+
+[node name="HutMarker9" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(465, -76)
+
+[node name="HutMarker10" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(352, 168)
+
+[node name="HutMarker11" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(382, 347)
+
+[node name="HutMarker12" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(88, 365)
+
+[node name="HutMarker13" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(-111, 431)
+
+[node name="HutMarker14" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(175, 513)
+
+[node name="HutMarker15" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(-228, 311)
+
+[node name="HutMarker16" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(-439, 282)
+
+[node name="HutMarker17" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(-334, 162)
+
+[node name="HutMarker18" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(-341, 428)
+
+[node name="HutMarker19" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(-148, 567)
+
+[node name="HutMarker20" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(65, 472)
+
+[node name="HutMarker21" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
+position = Vector2(-209, 28)
+
+[node name="Followers Markers" type="Node2D" parent="."]
+
+[node name="FollowerMarker" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+
+[node name="FollowerMarker2" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(97, 1)
+
+[node name="FollowerMarker3" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(222, -34)
+
+[node name="FollowerMarker4" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(317, -127)
+
+[node name="FollowerMarker5" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(508, -175)
+
+[node name="FollowerMarker6" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(568, -317)
+
+[node name="FollowerMarker7" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(636, -27)
+
+[node name="FollowerMarker8" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(575, 144)
+
+[node name="FollowerMarker9" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(365, 215)
+
+[node name="FollowerMarker10" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(134, 371)
+
+[node name="FollowerMarker11" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(21, 563)
+
+[node name="FollowerMarker12" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(-39, 469)
+
+[node name="FollowerMarker13" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(-257, 402)
+
+[node name="FollowerMarker14" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(-178, 229)
+
+[node name="FollowerMarker15" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(-304, 206)
+
+[node name="FollowerMarker16" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(-463, 349)
+
+[node name="FollowerMarker17" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(-240, 42)
+
+[node name="FollowerMarker18" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(-88, -32)
+
+[node name="FollowerMarker19" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
+position = Vector2(82, -234)
+
+[node name="FollowerPopulationVisualizer" type="Node" parent="." node_paths=PackedStringArray("_markersContainer")]
+script = ExtResource("8_cv8e0")
+_markersContainer = NodePath("../Followers Markers")
+_tiers = Array[Object]([ExtResource("9_hkvnm"), ExtResource("10_5ci8a"), ExtResource("11_18xdc"), ExtResource("12_epx8f"), ExtResource("13_hcu3t")])
+metadata/_custom_type_script = "uid://dj2wyrq07gfp2"
+
+[node name="HutPopulationVisualizer" type="Node" parent="." node_paths=PackedStringArray("_markersContainer")]
+script = ExtResource("8_cv8e0")
+_markersContainer = NodePath("../Hut Markers")
+_unitsPerMarker = 1
+_tiers = Array[Object]([ExtResource("14_18xdc"), ExtResource("15_epx8f"), ExtResource("16_hcu3t")])
+metadata/_custom_type_script = "uid://dj2wyrq07gfp2"

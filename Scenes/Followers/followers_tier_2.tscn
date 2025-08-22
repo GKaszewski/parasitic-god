@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://8jnnbe76xjhl"]
+
+[ext_resource type="Script" uid="uid://cj5libcgnhjml" path="res://Scripts/Follower.cs" id="1_1fjl1"]
+[ext_resource type="Texture2D" uid="uid://dhrbjqmhqdpef" path="res://Sprites/Follower.png" id="1_dwkko"]
+
+[node name="FollowersTier2" type="Node2D"]
+script = ExtResource("1_1fjl1")
+Tier = 1
+metadata/_custom_type_script = "uid://cj5libcgnhjml"
+
+[node name="Follower" type="Sprite2D" parent="."]
+position = Vector2(-4.39999, -4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_dwkko")
+
+[node name="Follower2" type="Sprite2D" parent="."]
+position = Vector2(-0.399994, -4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_dwkko")
+
+[node name="Follower3" type="Sprite2D" parent="."]
+position = Vector2(4.60001, -4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_dwkko")
+
+[node name="Follower4" type="Sprite2D" parent="."]
+position = Vector2(7.60001, -4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_dwkko")

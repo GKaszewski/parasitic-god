@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://c04rof865kdfb"]
+
+[ext_resource type="Script" uid="uid://cj5libcgnhjml" path="res://Scripts/Follower.cs" id="1_0bt7d"]
+[ext_resource type="Texture2D" uid="uid://dhrbjqmhqdpef" path="res://Sprites/Follower.png" id="1_ttwdp"]
+
+[node name="FollowersTier4" type="Node2D"]
+script = ExtResource("1_0bt7d")
+metadata/_custom_type_script = "uid://cj5libcgnhjml"
+
+[node name="Follower" type="Sprite2D" parent="."]
+position = Vector2(-5.39999, -17)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ttwdp")
+
+[node name="Follower2" type="Sprite2D" parent="."]
+position = Vector2(-1.39999, -17)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ttwdp")
+
+[node name="Follower3" type="Sprite2D" parent="."]
+position = Vector2(3.60001, -17)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ttwdp")
+
+[node name="Follower4" type="Sprite2D" parent="."]
+position = Vector2(6.60001, -17)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ttwdp")
+
+[node name="Follower5" type="Sprite2D" parent="."]
+position = Vector2(8.60001, -5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ttwdp")
+
+[node name="Follower6" type="Sprite2D" parent="."]
+position = Vector2(12.6, -5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ttwdp")
+
+[node name="Follower7" type="Sprite2D" parent="."]
+position = Vector2(17.6, -5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ttwdp")
+
+[node name="Follower8" type="Sprite2D" parent="."]
+position = Vector2(20.6, -5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ttwdp")
+
+[node name="Follower9" type="Sprite2D" parent="."]
+position = Vector2(-18.4, -5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ttwdp")
+
+[node name="Follower10" type="Sprite2D" parent="."]
+position = Vector2(-14.4, -5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ttwdp")
+
+[node name="Follower11" type="Sprite2D" parent="."]
+position = Vector2(-9.39999, -5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ttwdp")
+
+[node name="Follower12" type="Sprite2D" parent="."]
+position = Vector2(-6.39999, -5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ttwdp")

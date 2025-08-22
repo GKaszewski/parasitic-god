@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TierDefinition" load_steps=3 format=3 uid="uid://co2sdpwpajjqi"]
+
+[ext_resource type="PackedScene" uid="uid://cd4hc5b87uyqm" path="res://Scenes/Huts/hut_tier_2.tscn" id="1_trlm4"]
+[ext_resource type="Script" uid="uid://c7hh0cy0yrdt8" path="res://Scripts/Core/TierDefinition.cs" id="2_vr1nw"]
+
+[resource]
+script = ExtResource("2_vr1nw")
+Scene = ExtResource("1_trlm4")
+Threshold = 600000
+metadata/_custom_type_script = "uid://c7hh0cy0yrdt8"

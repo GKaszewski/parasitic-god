@@ -1,0 +1,76 @@
+using System;
+using System.Collections.Generic;
+using Godot;
+using ParasiticGod.Scripts.Core;
+using ParasiticGod.Scripts.Core.Effects;
+
+namespace ParasiticGod.Scripts.Singletons;
+
+public partial class GameBus : Node
+{
+    public static GameBus Instance { get; private set; }
+    public Dictionary<string, MiracleDefinition> AllMiracles { get; private set; }
+
+    private readonly GameState _gameState = new();
+    private readonly GameLogic _gameLogic = new();
+
+    public event Action<GameState> StateChanged;
+    public event Action<MiracleDefinition> MiraclePerformed;
+    public event Action<List<MiracleDefinition>> MiraclesUnlocked;
+    public event Action<MiracleDefinition> MiracleCompleted;
+
+    public override void _EnterTree()
+    {
+        Instance = this;
+        AllMiracles = MiracleLoader.LoadMiraclesFromDirectory("user://Mods/Miracles");
+    }
+
+    public override void _ExitTree()
+    {
+        Instance = null;
+    }
+
+    public override void _Process(double delta)
+    {
+        _gameLogic.UpdateGameState(_gameState, delta);
+        StateChanged?.Invoke(_gameState);
+
+        if (_gameState.Corruption >= 100)
+        {
+            GD.Print("The world has died!");
+            GetTree().Quit(); // For now
+        }
+    }
+
+    public void PerformMiracle(MiracleDefinition miracle)
+    {
+        if (_gameLogic.TryToPerformMiracle(_gameState, miracle))
+        {
+            MiraclePerformed?.Invoke(miracle);
+            
+            var miraclesToUnlock = new List<MiracleDefinition>();
+            foreach (var effect in miracle.Effects)
+            {
+                if (effect is UnlockMiracleEffect unlockEffect)
+                {
+                    foreach (var id in unlockEffect.MiraclesToUnlock)
+                    {
+                        if (AllMiracles.TryGetValue(id, out var def))
+                        {
+                            miraclesToUnlock.Add(def);
+                        }
+                    }
+                }
+                else if (effect is DestroySelfEffect)
+                {
+                    MiracleCompleted?.Invoke(miracle);
+                }
+            }
+
+            if (miraclesToUnlock.Count > 0)
+            {
+                MiraclesUnlocked?.Invoke(miraclesToUnlock);
+            }
+        }
+    }
+}

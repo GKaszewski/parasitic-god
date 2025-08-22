@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Parasitic God"
+run/main_scene="uid://bfil8sd154327"
+config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://icon.svg"
+
+[autoload]
+
+GameBus="*res://Scripts/Singletons/GameBus.cs"
+
+[dotnet]
+
+project/assembly_name="ParasiticGod"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.160784, 0.501961, 0.72549, 1)

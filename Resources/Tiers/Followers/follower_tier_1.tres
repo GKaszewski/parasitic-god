@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TierDefinition" load_steps=2 format=3 uid="uid://8ooxfo2wdbhu"]
+
+[ext_resource type="Script" uid="uid://c7hh0cy0yrdt8" path="res://Scripts/Core/TierDefinition.cs" id="1_wydwg"]
+
+[resource]
+script = ExtResource("1_wydwg")
+Threshold = 0
+metadata/_custom_type_script = "uid://c7hh0cy0yrdt8"

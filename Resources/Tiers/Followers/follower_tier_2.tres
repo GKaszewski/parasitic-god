@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TierDefinition" load_steps=3 format=3 uid="uid://cejeb3467iiyl"]
+
+[ext_resource type="PackedScene" uid="uid://c2d3ageprpd0o" path="res://Scenes/Followers/followers_tier_1.tscn" id="1_qgnom"]
+[ext_resource type="Script" uid="uid://c7hh0cy0yrdt8" path="res://Scripts/Core/TierDefinition.cs" id="2_3uaiv"]
+
+[resource]
+script = ExtResource("2_3uaiv")
+Scene = ExtResource("1_qgnom")
+Threshold = 0
+metadata/_custom_type_script = "uid://c7hh0cy0yrdt8"
