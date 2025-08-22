@@ -1,0 +1,14 @@
+{
+  "name": "Divine Frenzy",
+  "faithCost": 200,
+  "followersRequired": 50,
+  "unlockedByDefault": true,
+  "effects": [
+    {
+      "type": "ApplyBuff",
+      "targetBuffStat": "FaithGeneration",
+      "multiplier": 2.0,
+      "duration": 30
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Refined Dogma",
+  "faithCost": 1000,
+  "followersRequired": 250,
+  "unlockedByDefault": true,
+  "effects": [
+    {
+      "type": "ModifyStat",
+      "targetStat": "FaithPerFollower",
+      "op": "Add",
+      "value": 0.1
+    }
+  ]
+}

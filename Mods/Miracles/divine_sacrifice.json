@@ -1,0 +1,15 @@
+{
+  "name": "Divine Sacrifice",
+  "faithCost": 250,
+  "unlockedByDefault": false,
+  "followersRequired": 100,
+  "effects": [
+    {
+      "type": "ConvertResource",
+      "fromResource": "Followers",
+      "fromAmount": 50,
+      "toResource": "Faith",
+      "toAmount": 1000
+    }
+  ]
+}

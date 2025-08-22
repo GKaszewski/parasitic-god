@@ -1,0 +1,15 @@
+{
+  "name": "Purge Sins",
+  "faithCost": 100,
+  "followersRequired": 20,
+  "unlockedByDefault": true,
+  "effects": [
+    {
+      "type": "ConvertResource",
+      "fromResource": "Followers",
+      "fromAmount": 20,
+      "toResource": "Corruption",
+      "toAmount": -5
+    }
+  ]
+}

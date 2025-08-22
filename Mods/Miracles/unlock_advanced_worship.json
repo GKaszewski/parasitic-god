@@ -1,0 +1,13 @@
+{
+  "name": "Advanced Worship",
+  "faithCost": 500,
+  "unlockedByDefault": true,
+  "followersRequired": 100,
+  "effects": [
+    {
+      "type": "UnlockMiracle",
+      "miraclesToUnlock": [ "divine_sacrifice" ]
+    },
+    { "type": "DestroySelf" }
+  ]
+}
