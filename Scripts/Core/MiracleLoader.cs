@@ -84,7 +84,7 @@ public static class MiracleLoader
                         addResourceEffect.Value = effectDto.Value;
                         break;
                     case ApplyBuffEffect applyBuffEffect:
-                        applyBuffEffect.TargetStat = effectDto.TargetBuffStat;
+                        applyBuffEffect.TargetStat = effectDto.TargetStat;
                         applyBuffEffect.Multiplier = effectDto.Multiplier;
                         applyBuffEffect.Duration = effectDto.Duration;
                         break;

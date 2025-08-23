@@ -5,7 +5,6 @@ namespace ParasiticGod.Scripts.Core.Effects;
 [GlobalClass]
 public partial class ModifyStatEffect : Effect
 {
-    public enum Stat { FaithPerFollower }
     public enum Operation { Add, Multiply }
     
     [Export] public Stat TargetStat { get; set; }
@@ -14,17 +13,26 @@ public partial class ModifyStatEffect : Effect
     
     public override void Execute(GameState gameState)
     {
-        if (TargetStat == Stat.FaithPerFollower)
+        switch (Op)
         {
-            switch (Op)
-            {
-                case Operation.Add:
-                    gameState.FaithPerFollower += Value;
-                    break;
-                case Operation.Multiply:
-                    gameState.FaithPerFollower *= Value;
-                    break;
-            }
+            case Operation.Add:
+                var currentValue = gameState.Get(TargetStat);
+                gameState.Set(TargetStat, currentValue + Value);
+                break;
+            case Operation.Multiply:
+                var currentValueMul = gameState.Get(TargetStat);
+                gameState.Set(TargetStat, currentValueMul * Value);
+                break;
         }
+    }
+    
+    public override string ToString()
+    {
+        return Op switch
+        {
+            Operation.Add => $"Add {Value} to {TargetStat}",
+            Operation.Multiply => $"Multiply {TargetStat} by {Value}",
+            _ => "Unknown Operation"
+        };
     }
 }

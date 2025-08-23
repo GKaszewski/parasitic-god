@@ -35,7 +35,7 @@ public partial class GameBus : Node
         _gameLogic.UpdateGameState(_gameState, delta);
         StateChanged?.Invoke(_gameState);
 
-        if (_gameState.Corruption >= 100)
+        if (_gameState.Get(Stat.Corruption) >= 100)
         {
             GD.Print("The world has died!");
             GetTree().Quit(); // For now
@@ -73,4 +73,9 @@ public partial class GameBus : Node
             }
         }
     }
+    
+    public void SubscribeToStat(Stat stat, Action<double> listener) => _gameState.Subscribe(stat, listener);
+    public void UnsubscribeFromStat(Stat stat, Action<double> listener) => _gameState.Unsubscribe(stat, listener);
+    
+    public GameState CurrentState => _gameState;
 }

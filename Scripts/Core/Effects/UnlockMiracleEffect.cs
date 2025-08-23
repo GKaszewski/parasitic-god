@@ -13,4 +13,9 @@ public partial class UnlockMiracleEffect : Effect
     {
         
     }
+    
+    public override string ToString()
+    {
+        return $"Unlock miracles: {string.Join(", ", MiraclesToUnlock)}";
+    }
 }

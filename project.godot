@@ -22,6 +22,10 @@ config/icon="uid://dihjvrhshhklu"
 
 GameBus="*res://Scripts/Singletons/GameBus.cs"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="ParasiticGod"

@@ -40,7 +40,7 @@ public partial class PopulationVisualizer : Node
     {
         if (_isUpdating) return;
         
-        var currentUnitCount = newState.Followers;
+        var currentUnitCount = (long)newState.Get(Stat.Followers);
 
         var currentMarkersToShow = (int)currentUnitCount / _unitsPerMarker;
         var lastMarkersToShow = (int)_lastKnownUnitCount / _unitsPerMarker;
@@ -84,8 +84,6 @@ public partial class PopulationVisualizer : Node
 
             if (i < followersToShow)
             {
-                // Note: The 'Follower' script would need a way to know its tier index or resource path
-                // to do a perfect comparison. For now, we'll just check for occupancy.
                 if (!marker.IsOccupied || _lastKnownTierIndex != newTierIndex)
                 {
                     if (marker.IsOccupied) marker.RemoveFollower();

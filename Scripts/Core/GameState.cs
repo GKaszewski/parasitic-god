@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using ParasiticGod.Scripts.Core.Effects;
 
@@ -5,23 +6,32 @@ namespace ParasiticGod.Scripts.Core;
 
 public class GameState
 {
-    public double Faith { get; set; } = 50.0;
-    public double FaithPerFollower { get; set; } = 0.5;
-    public long Followers { get; set; } = 40;
-    public double Corruption { get; set; } = 0.0;
-
+    private readonly Dictionary<Stat, StatData> _stats = new();
+    
     public List<Buff> ActiveBuffs { get; } = [];
-
-    public double FaithPerSecond
+    
+    public GameState()
     {
-        get
+        // Initialize all stats with their default values
+        foreach (Stat stat in Enum.GetValues(typeof(Stat)))
         {
-            var totalMultiplier = 1.0;
-            foreach (var buff in ActiveBuffs)
-            {
-                totalMultiplier *= buff.Multiplier;
-            }
-            return Followers * FaithPerFollower * totalMultiplier;
+            _stats[stat] = new StatData();
         }
+        
+        Set(Stat.Faith, 50);
+        Set(Stat.Followers, 40);
+        Set(Stat.FaithPerFollower, 0.5);
+        Set(Stat.ProductionPerSecond, 1.0);
+        Set(Stat.CorruptionPerSecond, 0.1);
     }
+    
+    public double Get(Stat stat) => _stats[stat].Value;
+    
+    public void Set(Stat stat, double value) => _stats[stat].Set(value);
+    
+    public void Modify(Stat stat, double delta) => _stats[stat].Set(Get(stat) + delta);
+    
+    public void Subscribe(Stat stat, Action<double> listener) => _stats[stat].OnChanged += listener;
+    
+    public void Unsubscribe(Stat stat, Action<double> listener) => _stats[stat].OnChanged -= listener;
 }

@@ -24,12 +24,13 @@ shader_parameter/corrupted_color = Color(0.3, 0.1, 0.2, 1)
 shader_parameter/corruption_level = 0.0
 shader_parameter/tolerance = 0.1
 
-[node name="World" type="Node2D" node_paths=PackedStringArray("_faithLabel", "_followersLabel", "_corruptionLabel", "_miraclePanel", "_worldSprite")]
+[node name="World" type="Node2D" node_paths=PackedStringArray("_faithLabel", "_followersLabel", "_corruptionLabel", "_productionLabel", "_miraclePanel", "_worldSprite")]
 script = ExtResource("1_p8rbg")
-_faithLabel = NodePath("UiLayer/Control/MarginContainer/Main/Top/FaithLabel")
-_followersLabel = NodePath("UiLayer/Control/MarginContainer/Main/Top/FollowersLabel")
-_corruptionLabel = NodePath("UiLayer/Control/MarginContainer/Main/Top/CorruptionLabel")
-_miraclePanel = NodePath("UiLayer/Control/MarginContainer/Main/Bottom")
+_faithLabel = NodePath("UiLayer/Control/Main/Top/FaithLabel")
+_followersLabel = NodePath("UiLayer/Control/Main/Top/FollowersLabel")
+_corruptionLabel = NodePath("UiLayer/Control/Main/Top/CorruptionLabel")
+_productionLabel = NodePath("UiLayer/Control/Main/Top/ProductionLabel")
+_miraclePanel = NodePath("UiLayer/Control/Main/ScrollContainer/Bottom")
 _worldSprite = NodePath("World Sprite")
 
 [node name="UiLayer" type="CanvasLayer" parent="."]
@@ -44,44 +45,120 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="UiLayer/Control"]
+[node name="Main" type="MarginContainer" parent="UiLayer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Main" type="VBoxContainer" parent="UiLayer/Control/MarginContainer"]
+[node name="Top" type="HBoxContainer" parent="UiLayer/Control/Main"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+alignment = 1
 
-[node name="Top" type="HBoxContainer" parent="UiLayer/Control/MarginContainer/Main"]
-layout_mode = 2
-
-[node name="FaithLabel" type="Label" parent="UiLayer/Control/MarginContainer/Main/Top"]
+[node name="FaithLabel" type="Label" parent="UiLayer/Control/Main/Top"]
 layout_mode = 2
 text = "Faith Label"
 
-[node name="FollowersLabel" type="Label" parent="UiLayer/Control/MarginContainer/Main/Top"]
+[node name="FollowersLabel" type="Label" parent="UiLayer/Control/Main/Top"]
 layout_mode = 2
 text = "FollowersLabel"
 
-[node name="CorruptionLabel" type="Label" parent="UiLayer/Control/MarginContainer/Main/Top"]
+[node name="ProductionLabel" type="Label" parent="UiLayer/Control/Main/Top"]
+layout_mode = 2
+text = "ProductionLabel"
+
+[node name="CorruptionLabel" type="Label" parent="UiLayer/Control/Main/Top"]
 layout_mode = 2
 text = "CorruptionLabel"
 
-[node name="Bottom" type="GridContainer" parent="UiLayer/Control/MarginContainer/Main"]
+[node name="ScrollContainer" type="ScrollContainer" parent="UiLayer/Control/Main"]
+custom_minimum_size = Vector2(430, 200)
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_horizontal = 8
+size_flags_vertical = 10
+horizontal_scroll_mode = 0
+
+[node name="Bottom" type="GridContainer" parent="UiLayer/Control/Main/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
 columns = 3
 script = ExtResource("2_hcu3t")
 _miracleButtonScene = ExtResource("3_qdkat")
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="UiLayer/Control/Main"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UiLayer/Control/Main/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Effect"
+
+[node name="Button2" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Effect"
+
+[node name="Button3" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Effect"
+
+[node name="Button4" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Effect"
+
+[node name="Button5" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Effect"
+
+[node name="Button6" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Effect"
+
+[node name="Button7" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Effect"
+
+[node name="Button8" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Effect"
+
+[node name="Button9" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Effect"
+
+[node name="Button10" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Effect"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

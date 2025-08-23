@@ -7,22 +7,21 @@ public class EffectDto
 {
     public string Type { get; set; }
     // --- For "AddResource" Effect ---
-    public ResourceType TargetResource { get; set; }
+    public Stat TargetResource { get; set; }
     public double Value { get; set; }
 
     // --- For "ApplyBuff" Effect ---
-    public ApplyBuffEffect.BuffTarget TargetBuffStat { get; set; }
     public float Multiplier { get; set; }
     public double Duration { get; set; }
 
     // --- For "ConvertResource" Effect ---
-    public ResourceType FromResource { get; set; }
+    public Stat FromResource { get; set; }
     public double FromAmount { get; set; }
-    public ResourceType ToResource { get; set; }
+    public Stat ToResource { get; set; }
     public double ToAmount { get; set; }
     
     // --- For "ModifyStat" Effect ---
-    public ModifyStatEffect.Stat TargetStat { get; set; }
+    public Stat TargetStat { get; set; }
     public ModifyStatEffect.Operation Op { get; set; }
     
     public List<string> MiraclesToUnlock { get; set; }

@@ -17,7 +17,8 @@ public partial class MiracleButton : Button
             return;
         }
         
-        Text = $"{_miracle.Name}\nCost: {_miracle.FaithCost} Faith";
+        Text = BuildText();
+        TooltipText = BuildTooltipText();
         
         Pressed += OnPressed;
     }
@@ -35,8 +36,25 @@ public partial class MiracleButton : Button
     public void SetMiracle(MiracleDefinition miracle)
     {
         _miracle = miracle;
-        Text = $"{_miracle.Name}\nCost: {_miracle.FaithCost} Faith";
+        Text = BuildText();
+        TooltipText = BuildTooltipText();
     }
 
     public MiracleDefinition GetMiracle() { return _miracle; }
+    
+    private string BuildText()
+    {
+        return $"{_miracle.Name}\nCost: {_miracle.FaithCost} Faith";
+    }
+    
+    private string BuildTooltipText()
+    {
+        var tooltip = $"Cost: {_miracle.FaithCost} Faith\nRequires: {_miracle.FollowersRequired} Followers\nEffects:\n";
+        foreach (var effect in _miracle.Effects)
+        {
+            if (effect.ToString() == string.Empty) continue;
+            tooltip += $"- {effect}\n";
+        }
+        return tooltip.TrimEnd();
+    }
 }
