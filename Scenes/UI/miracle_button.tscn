@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://rj1fsdlhju5y"]
+[gd_scene load_steps=3 format=3 uid="uid://rj1fsdlhju5y"]
 
 [ext_resource type="Script" uid="uid://ctjmwgucwh3le" path="res://Scenes/Main/MiracleButton.cs" id="1_sxcu0"]
+[ext_resource type="AudioStream" uid="uid://c2kkfl2nv5rlh" path="res://Sfx/UI_SFX_Pack_61_22.wav" id="2_bjlki"]
 
 [node name="MiracleButton" type="Button"]
 custom_minimum_size = Vector2(128, 64)
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("1_sxcu0")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bjlki")

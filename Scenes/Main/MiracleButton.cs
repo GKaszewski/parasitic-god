@@ -7,6 +7,7 @@ namespace ParasiticGod.Scenes.Main;
 public partial class MiracleButton : Button
 {
     private MiracleDefinition _miracle;
+    [Export] private AudioStreamPlayer _sfx;
 
     public override void _Ready()
     {
@@ -19,6 +20,11 @@ public partial class MiracleButton : Button
         
         Text = BuildText();
         TooltipText = BuildTooltipText();
+
+        if (_sfx == null)
+        {
+            _sfx = GetNodeOrNull<AudioStreamPlayer>("SFX");
+        }
         
         Pressed += OnPressed;
     }
@@ -30,6 +36,7 @@ public partial class MiracleButton : Button
 
     private void OnPressed()
     {
+        _sfx?.Play();
         GameBus.Instance.PerformMiracle(_miracle);
     }
 

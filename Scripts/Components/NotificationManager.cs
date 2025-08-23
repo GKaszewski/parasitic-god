@@ -8,6 +8,7 @@ namespace ParasiticGod.Scripts.Components;
 public partial class NotificationManager : CanvasLayer
 {
     [Export] private PackedScene _notificationLabelScene;
+    [Export] private AudioStreamPlayer _sfx;
     
     public override void _Ready()
     {
@@ -26,6 +27,7 @@ public partial class NotificationManager : CanvasLayer
     {
         var notification = _notificationLabelScene.Instantiate<NotificationLabel>();
         AddChild(notification);
+        _sfx?.Play();
         notification.ShowNotification($"You have entered\n{ageName}!");
     }
 }

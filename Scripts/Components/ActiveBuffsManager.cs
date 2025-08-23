@@ -11,6 +11,8 @@ namespace ParasiticGod.Scripts.Components;
 public partial class ActiveBuffsManager : Node
 {
     [Export] private PackedScene _activeBuffScene;
+    [Export] private AudioStreamPlayer _buffRemovedSfx;
+    [Export] private AudioStreamPlayer _buffAddedSfx;
     
     private readonly Dictionary<Guid, ActiveBuffUi> _activeBuffUis = new();
     
@@ -33,6 +35,7 @@ public partial class ActiveBuffsManager : Node
         AddChild(buffInstance);
         buffInstance.SetBuff(buff);
         _activeBuffUis.Add(buff.Id, buffInstance);
+        _buffAddedSfx?.Play();
     }
 
     private void OnBuffRemoved(Buff buff)
@@ -41,6 +44,7 @@ public partial class ActiveBuffsManager : Node
         {
             buffUi.QueueFree();
             _activeBuffUis.Remove(buff.Id);
+            _buffRemovedSfx?.Play();
         }
     }
 }

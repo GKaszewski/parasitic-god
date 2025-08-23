@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bfil8sd154327"]
+[gd_scene load_steps=28 format=3 uid="uid://bfil8sd154327"]
 
 [ext_resource type="Script" uid="uid://t71ewkpa5uqs" path="res://Scenes/Main/Main.cs" id="1_p8rbg"]
 [ext_resource type="Script" uid="uid://b77vh831r1e3c" path="res://Scenes/Main/MiraclePanel.cs" id="2_hcu3t"]
@@ -6,9 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://dg6ac3jb1366r" path="res://Sprites/globe.svg" id="4_i3fi7"]
 [ext_resource type="Script" uid="uid://ddshg236tlltt" path="res://Scripts/Components/ActiveBuffsManager.cs" id="4_xggvw"]
 [ext_resource type="PackedScene" uid="uid://b417dl07c13uc" path="res://Scenes/UI/buff_button.tscn" id="5_xd21n"]
+[ext_resource type="AudioStream" uid="uid://4cgkxo3qconx" path="res://Sfx/UI_SFX_Pack_61_50.wav" id="6_32vk6"]
 [ext_resource type="PackedScene" uid="uid://be5d0d3aweg0l" path="res://Scenes/Huts/HutMarker.tscn" id="6_cv8e0"]
 [ext_resource type="Script" uid="uid://c6uh5h3sdlg7n" path="res://Scripts/Components/NotificationManager.cs" id="6_iwp64"]
 [ext_resource type="PackedScene" uid="uid://crpf0llofg0sc" path="res://Scenes/UI/notification_label.tscn" id="7_4etfk"]
+[ext_resource type="AudioStream" uid="uid://vuf57vdueq3b" path="res://Sfx/UI_SFX_Pack_61_49.wav" id="7_crdpj"]
+[ext_resource type="AudioStream" uid="uid://dv0i7xw8o5ac0" path="res://Sfx/UI_SFX_Pack_61_5.wav" id="8_4etfk"]
 [ext_resource type="Script" uid="uid://dj2wyrq07gfp2" path="res://Scripts/Components/PopulationVisualizer.cs" id="8_cv8e0"]
 [ext_resource type="PackedScene" uid="uid://8w7tvsgkev1y" path="res://Scenes/tree.tscn" id="8_hcu3t"]
 [ext_resource type="Resource" uid="uid://8ooxfo2wdbhu" path="res://Resources/Tiers/Followers/follower_tier_1.tres" id="9_hkvnm"]
@@ -112,17 +115,29 @@ size_flags_horizontal = 0
 size_flags_vertical = 10
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UiLayer/Control/Main/ScrollContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UiLayer/Control/Main/ScrollContainer2" node_paths=PackedStringArray("_buffRemovedSfx", "_buffAddedSfx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("4_xggvw")
 _activeBuffScene = ExtResource("5_xd21n")
+_buffRemovedSfx = NodePath("BuffRemoved")
+_buffAddedSfx = NodePath("BuffAdded")
 
-[node name="Notification Layer" type="CanvasLayer" parent="."]
+[node name="BuffRemoved" type="AudioStreamPlayer" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
+stream = ExtResource("6_32vk6")
+
+[node name="BuffAdded" type="AudioStreamPlayer" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
+stream = ExtResource("7_crdpj")
+
+[node name="Notification Layer" type="CanvasLayer" parent="." node_paths=PackedStringArray("_sfx")]
 layer = 3
 script = ExtResource("6_iwp64")
 _notificationLabelScene = ExtResource("7_4etfk")
+_sfx = NodePath("Advance Age")
+
+[node name="Advance Age" type="AudioStreamPlayer" parent="Notification Layer"]
+stream = ExtResource("8_4etfk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
