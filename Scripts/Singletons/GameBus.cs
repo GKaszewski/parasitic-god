@@ -18,6 +18,8 @@ public partial class GameBus : Node
     public event Action<MiracleDefinition> MiraclePerformed;
     public event Action<List<MiracleDefinition>> MiraclesUnlocked;
     public event Action<MiracleDefinition> MiracleCompleted;
+    public event Action<Buff> BuffAdded;
+    public event Action<Buff> BuffRemoved;
     public event Action PopulationVisualsUpdated;
 
     public override void _EnterTree()
@@ -78,6 +80,16 @@ public partial class GameBus : Node
     public void NotifyPopulationVisualsUpdated()
     {
         PopulationVisualsUpdated?.Invoke();
+    }
+    
+    public void NotifyBuffAdded(Buff buff)
+    {
+        BuffAdded?.Invoke(buff);
+    }
+
+    public void NotifyBuffRemoved(Buff buff)
+    {
+        BuffRemoved?.Invoke(buff);
     }
     
     public void SubscribeToStat(Stat stat, Action<double> listener) => _gameState.Subscribe(stat, listener);

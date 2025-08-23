@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b417dl07c13uc"]
+
+[ext_resource type="Script" uid="uid://chnf0t5xdosys" path="res://Scripts/ActiveBuffUi.cs" id="1_7ujuu"]
+
+[node name="BuffButton" type="Button"]
+focus_mode = 0
+disabled = true
+button_mask = 0
+text = "Effect"
+script = ExtResource("1_7ujuu")

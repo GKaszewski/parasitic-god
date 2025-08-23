@@ -1,4 +1,5 @@
 using System;
+using ParasiticGod.Scripts.Singletons;
 
 namespace ParasiticGod.Scripts.Core;
 
@@ -23,6 +24,7 @@ public class GameLogic
             buff.Duration -= delta;
             if (buff.Duration <= 0)
             {
+                GameBus.Instance.NotifyBuffRemoved(buff);
                 state.ActiveBuffs.RemoveAt(i);
             }
         }

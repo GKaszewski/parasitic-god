@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://bfil8sd154327"]
+[gd_scene load_steps=23 format=3 uid="uid://bfil8sd154327"]
 
 [ext_resource type="Script" uid="uid://t71ewkpa5uqs" path="res://Scenes/Main/Main.cs" id="1_p8rbg"]
 [ext_resource type="Script" uid="uid://b77vh831r1e3c" path="res://Scenes/Main/MiraclePanel.cs" id="2_hcu3t"]
 [ext_resource type="PackedScene" uid="uid://rj1fsdlhju5y" path="res://Scenes/Main/miracle_button.tscn" id="3_qdkat"]
 [ext_resource type="Texture2D" uid="uid://dg6ac3jb1366r" path="res://Sprites/globe.svg" id="4_i3fi7"]
+[ext_resource type="Script" uid="uid://ddshg236tlltt" path="res://Scripts/ActiveBuffsManager.cs" id="4_xggvw"]
+[ext_resource type="PackedScene" uid="uid://b417dl07c13uc" path="res://Scenes/Main/buff_button.tscn" id="5_xd21n"]
 [ext_resource type="PackedScene" uid="uid://be5d0d3aweg0l" path="res://Scenes/Huts/HutMarker.tscn" id="6_cv8e0"]
 [ext_resource type="Script" uid="uid://dj2wyrq07gfp2" path="res://Scripts/PopulationVisualizer.cs" id="8_cv8e0"]
 [ext_resource type="PackedScene" uid="uid://8w7tvsgkev1y" path="res://Scenes/tree.tscn" id="8_hcu3t"]
@@ -112,56 +114,8 @@ vertical_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="Button" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "Effect"
-
-[node name="Button2" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "Effect"
-
-[node name="Button3" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "Effect"
-
-[node name="Button4" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "Effect"
-
-[node name="Button5" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "Effect"
-
-[node name="Button6" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "Effect"
-
-[node name="Button7" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "Effect"
-
-[node name="Button8" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "Effect"
-
-[node name="Button9" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "Effect"
-
-[node name="Button10" type="Button" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "Effect"
+script = ExtResource("4_xggvw")
+_activeBuffScene = ExtResource("5_xd21n")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

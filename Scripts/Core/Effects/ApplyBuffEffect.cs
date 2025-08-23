@@ -1,4 +1,5 @@
 using Godot;
+using ParasiticGod.Scripts.Singletons;
 
 namespace ParasiticGod.Scripts.Core.Effects;
 
@@ -13,11 +14,13 @@ public partial class ApplyBuffEffect : Effect
     {
         var newBuff = new Buff
         {
+            Name = $"{TargetStat} x{Multiplier}",
             Multiplier = Multiplier,
             Duration = Duration
         };
         
         gameState.ActiveBuffs.Add(newBuff);
+        GameBus.Instance.NotifyBuffAdded(newBuff);
     }
 
     public override string ToString()
