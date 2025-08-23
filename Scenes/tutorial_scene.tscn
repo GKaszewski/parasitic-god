@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://kvpk5wrcp3rv"]
+
+[ext_resource type="Script" uid="uid://d08d3pi7sx8k3" path="res://Scripts/UI/TutorialScene.cs" id="1_epmsy"]
+[ext_resource type="PackedScene" uid="uid://bfil8sd154327" path="res://Scenes/Main/Main.tscn" id="2_mw53g"]
+[ext_resource type="Resource" uid="uid://dxgpvgx7axp88" path="res://Dialogue/tutorial.dialogue" id="3_oaf0i"]
+[ext_resource type="Texture2D" uid="uid://dg6ac3jb1366r" path="res://Sprites/globe.svg" id="4_7u0dx"]
+
+[node name="TutorialScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_epmsy")
+_mainGameScene = ExtResource("2_mw53g")
+_tutorialDialogue = ExtResource("3_oaf0i")
+
+[node name="World" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 195.0
+offset_top = -98.0
+offset_right = 915.0
+offset_bottom = 732.0
+texture = ExtResource("4_7u0dx")
+expand_mode = 4

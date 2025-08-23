@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cbdokimy0qarg" path="res://Scripts/MainMenu.cs" id="1_1ehe0"]
 [ext_resource type="FontFile" uid="uid://wofoiaejxgsp" path="res://Fonts/Playful Boxes.otf" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://d2wi2cs20q2b6" path="res://Parasitic_God.png" id="1_48xlc"]
-[ext_resource type="PackedScene" uid="uid://bfil8sd154327" path="res://Scenes/Main/Main.tscn" id="2_ce3w2"]
+[ext_resource type="PackedScene" uid="uid://kvpk5wrcp3rv" path="res://Scenes/tutorial_scene.tscn" id="2_ce3w2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_48xlc"]
 font = ExtResource("1_28flt")
