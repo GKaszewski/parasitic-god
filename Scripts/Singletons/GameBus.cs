@@ -28,9 +28,9 @@ public partial class GameBus : Node
     public override void _EnterTree()
     {
         Instance = this;
-        AllMiracles = MiracleLoader.LoadMiraclesFromDirectory("user://Mods/Miracles");
-        FollowerTiers = TierLoader.LoadTiersFromFile("user://Mods/Tiers/follower_tiers.json");
-        HutTiers = TierLoader.LoadTiersFromFile("user://Mods/Tiers/hut_tiers.json");
+        AllMiracles = MiracleLoader.LoadAllMiracles();
+        FollowerTiers = TierLoader.LoadTiers("res://Mods/Tiers/follower_tiers.json", "user://Mods/Tiers/follower_tiers.json");
+        HutTiers = TierLoader.LoadTiers("res://Mods/Tiers/hut_tiers.json","user://Mods/Tiers/hut_tiers.json");
     }
 
     public override void _ExitTree()

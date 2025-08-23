@@ -1,0 +1,14 @@
+{
+  "name": "Ritual of Cleansing",
+  "faithCost": 1000,
+  "followersRequired": 200,
+  "productionRequired": 100,
+  "unlockedByDefault": false,
+  "effects": [
+    {
+      "type": "AddResource",
+      "targetResource": "Corruption",
+      "value": -10
+    }
+  ]
+}

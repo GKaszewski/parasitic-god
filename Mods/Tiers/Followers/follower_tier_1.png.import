@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxlaf72h3pftt"
-path="res://.godot/imported/hut_tier_1.png-4ce775c649cfe5f92a10187bc1930a9b.ctex"
+uid="uid://2wsb1jsmtifq"
+path="res://.godot/imported/follower_tier_1.png-d66a290ad46b1bb9ea69b54444ab5725.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mods/Tiers/hut_tier_1.png"
-dest_files=["res://.godot/imported/hut_tier_1.png-4ce775c649cfe5f92a10187bc1930a9b.ctex"]
+source_file="res://Mods/Tiers/Followers/follower_tier_1.png"
+dest_files=["res://.godot/imported/follower_tier_1.png-d66a290ad46b1bb9ea69b54444ab5725.ctex"]
 
 [params]
 

@@ -7,7 +7,21 @@ namespace ParasiticGod.Scripts.Core;
 
 public static class TierLoader
 {
-    public static List<TierDefinition> LoadTiersFromFile(string filePath)
+    public static List<TierDefinition> LoadTiers(string baseFilePath, string userFilePath)
+    {
+        // Prioritize the user's file. If it exists, load it.
+        if (FileAccess.FileExists(userFilePath))
+        {
+            GD.Print($"Loading user tier file: {userFilePath}");
+            return LoadTierListFromFile(userFilePath);
+        }
+        
+        // Otherwise, fall back to the base game's file.
+        GD.Print($"Loading base tier file: {baseFilePath}");
+        return LoadTierListFromFile(baseFilePath);
+    }
+    
+    private static List<TierDefinition> LoadTierListFromFile(string filePath)
     {
         var loadedTiers = new List<TierDefinition>();
         
@@ -27,17 +41,25 @@ public static class TierLoader
 
         foreach (var dto in tierListDto.Tiers)
         {
-            var image = Image.LoadFromFile(dto.ImagePath);
-            if (image == null)
+            Texture2D texture = null;
+            if (dto.ImagePath.StartsWith("res://"))
             {
-                GD.PushError($"Failed to load image at path: {dto.ImagePath}");
-                continue;
+                texture = GD.Load<Texture2D>(dto.ImagePath);
             }
+            else if (dto.ImagePath.StartsWith("user://"))
+            {
+                var image = Image.LoadFromFile(dto.ImagePath);
+                if (image != null)
+                {
+                    texture = ImageTexture.CreateFromImage(image);
+                }
+            }
+            
             var tierDef = new TierDefinition
             {
                 Threshold = dto.Threshold,
                 TierEnum = dto.TierEnum,
-                Texture = ImageTexture.CreateFromImage(image),
+                Texture = texture,
                 Scale = new Vector2(dto.Scale.X, dto.Scale.Y)
             };
             loadedTiers.Add(tierDef);

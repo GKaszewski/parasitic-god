@@ -1,5 +1,4 @@
 using System;
-using System.Text.Json;
 using Godot;
 using Godot.Collections;
 using Newtonsoft.Json;
@@ -18,13 +17,27 @@ public static class MiracleLoader
         { "UnlockMiracle", typeof(UnlockMiracleEffect) },
         { "DestroySelf", typeof(DestroySelfEffect) }
     };
-
-    public static System.Collections.Generic.Dictionary<string, MiracleDefinition> LoadMiraclesFromDirectory(string path)
+    
+    public static System.Collections.Generic.Dictionary<string, MiracleDefinition> LoadAllMiracles()
     {
         var loadedMiracles = new System.Collections.Generic.Dictionary<string, MiracleDefinition>();
-        using var dir = DirAccess.Open(path);
-        if (dir == null) return loadedMiracles;
+        
+        LoadMiraclesFromPath("res://Mods/Miracles", loadedMiracles);
+        LoadMiraclesFromPath("user://Mods/Miracles", loadedMiracles);
 
+        GD.Print($"Finished loading. Total unique miracles: {loadedMiracles.Count}");
+        return loadedMiracles;
+    }
+    
+    private static void LoadMiraclesFromPath(string path, System.Collections.Generic.Dictionary<string, MiracleDefinition> miracles)
+    {
+        if (!DirAccess.DirExistsAbsolute(path))
+        {
+            GD.Print($"Mod directory not found, skipping: {path}");
+            return;
+        }
+
+        using var dir = DirAccess.Open(path);
         dir.ListDirBegin();
         var fileName = dir.GetNext();
         while (!string.IsNullOrEmpty(fileName))
@@ -33,17 +46,15 @@ public static class MiracleLoader
             {
                 var filePath = path.PathJoin(fileName);
                 var fileNameNoExt = fileName.GetBaseName();
-                var miracle = LoadMiracleFromFile(filePath, fileNameNoExt); // Pass the ID
+                var miracle = LoadMiracleFromFile(filePath, fileNameNoExt);
                 if (miracle != null)
                 {
-                    loadedMiracles.Add(fileNameNoExt, miracle);
+                    // Add or overwrite the miracle in the dictionary.
+                    miracles[fileNameNoExt] = miracle;
                 }
             }
             fileName = dir.GetNext();
         }
-        
-        GD.Print($"Loaded {loadedMiracles.Count} miracles from {path}");
-        return loadedMiracles;
     }
 
     private static MiracleDefinition LoadMiracleFromFile(string filePath, string miracleId)

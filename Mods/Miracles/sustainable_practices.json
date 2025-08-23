@@ -1,0 +1,18 @@
+{
+  "name": "Sustainable Practices",
+  "faithCost": 1200,
+  "followersRequired": 300,
+  "productionRequired": 150,
+  "unlockedByDefault": false,
+  "effects": [
+    {
+      "type": "ModifyStat",
+      "targetStat": "CorruptionPerSecond",
+      "op": "Add",
+      "value": -0.1
+    },
+    {
+      "type": "DestroySelf"
+    }
+  ]
+}
