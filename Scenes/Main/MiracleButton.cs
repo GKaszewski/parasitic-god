@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Godot;
 using ParasiticGod.Scripts.Core;
 using ParasiticGod.Scripts.Singletons;
@@ -27,11 +29,19 @@ public partial class MiracleButton : Button
         }
         
         Pressed += OnPressed;
+        
+        GameBus.Instance.StateChanged += UpdateAvailability;
+        UpdateAvailability(GameBus.Instance.CurrentState);
     }
 
     public override void _ExitTree()
     {
         Pressed -= OnPressed;
+        
+        if (GameBus.Instance != null)
+        {
+            GameBus.Instance.StateChanged -= UpdateAvailability;
+        }
     }
 
     private void OnPressed()
@@ -43,23 +53,76 @@ public partial class MiracleButton : Button
     public void SetMiracle(MiracleDefinition miracle)
     {
         _miracle = miracle;
-        Text = BuildText();
-        TooltipText = BuildTooltipText();
     }
 
     public MiracleDefinition GetMiracle() { return _miracle; }
     
+    /// <summary>
+    /// Checks the miracle's requirements against the current game state
+    /// and updates the button's disabled status and tooltip.
+    /// </summary>
+    private void UpdateAvailability(GameState state)
+    {
+        if (_miracle == null) return;
+
+        var missingRequirements = new List<string>();
+
+        if (state.Get(Stat.Faith) < _miracle.FaithCost)
+        {
+            missingRequirements.Add($"Not enough Faith ({state.Get(Stat.Faith):F0} / {_miracle.FaithCost})");
+        }
+        if (state.Get(Stat.Followers) < _miracle.FollowersRequired)
+        {
+            missingRequirements.Add($"Not enough Followers ({(long)state.Get(Stat.Followers)} / {_miracle.FollowersRequired})");
+        }
+        if (state.Get(Stat.Production) < _miracle.ProductionRequired)
+        {
+            missingRequirements.Add($"Not enough Production ({state.Get(Stat.Production):F0} / {_miracle.ProductionRequired})");
+        }
+
+        if (missingRequirements.Any())
+        {
+            Disabled = true;
+            TooltipText = string.Join("\n", missingRequirements);
+        }
+        else
+        {
+            Disabled = false;
+            TooltipText = BuildTooltipText();
+        }
+    }
+    
     private string BuildText()
     {
-        return $"{_miracle.Name}\nCost: {_miracle.FaithCost} Faith";
+        string costText;
+        if (_miracle.ProductionRequired > 0 && _miracle.FaithCost <= 0)
+        {
+            costText = $"Cost: {_miracle.ProductionRequired:F0} Prod";
+        }
+        else
+        {
+            costText = $"Cost: {_miracle.FaithCost:F0} Faith";
+        }
+        
+        return $"{_miracle.Name}\n{costText}";
     }
     
     private string BuildTooltipText()
     {
-        var tooltip = $"Cost: {_miracle.FaithCost} Faith\nRequires: {_miracle.FollowersRequired} Followers\nEffects:\n";
+        var tooltip = "";
+        
+        if (_miracle.FaithCost > 0)
+            tooltip += $"Cost: {_miracle.FaithCost:F0} Faith\n";
+        if (_miracle.ProductionRequired > 0)
+            tooltip += $"Cost: {_miracle.ProductionRequired:F0} Production\n";
+        if (_miracle.FollowersRequired > 0)
+            tooltip += $"Requires: {_miracle.FollowersRequired} Followers\n";
+        
+        tooltip += "\nEffects:\n";
+        
         foreach (var effect in _miracle.Effects)
         {
-            if (effect.ToString() == string.Empty) continue;
+            if (string.IsNullOrEmpty(effect.ToString())) continue;
             tooltip += $"- {effect}\n";
         }
         return tooltip.TrimEnd();
