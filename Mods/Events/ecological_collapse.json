@@ -1,0 +1,35 @@
+{
+  "id": "event_ecological_collapse",
+  "title": "Ecological Collapse",
+  "description": "The planet's ecosystem has reached a breaking point. Widespread famine and resource scarcity are imminent. We must choose what to prioritize for survival.",
+  "meanTimeToHappen": 400,
+  "trigger": {
+    "minFollowers": 3000,
+    "maxCorruption": 85
+  },
+  "options": [
+    {
+      "text": "Ration food for the workers.",
+      "tooltip": "Maintain your production, but lose a significant number of followers to famine.",
+      "effects": [
+        {
+          "type": "AddResource",
+          "targetResource": "Followers",
+          "value": -1000
+        }
+      ]
+    },
+    {
+      "text": "Divert all efforts to food production.",
+      "tooltip": "Save your population, but suffer a permanent blow to your industrial efficiency.",
+      "effects": [
+        {
+          "type": "ModifyStat",
+          "targetStat": "ProductionPerFollower",
+          "op": "Multiply",
+          "value": 0.75
+        }
+      ]
+    }
+  ]
+}

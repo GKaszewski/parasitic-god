@@ -1,0 +1,37 @@
+{
+  "id": "event_plague_descends",
+  "title": "A Plague Descends",
+  "description": "A virulent disease is sweeping through the population, sickening your followers and halting progress. Drastic measures may be required.",
+  "meanTimeToHappen": 300,
+  "trigger": {
+    "minFollowers": 500,
+    "maxCorruption": 80
+  },
+  "options": [
+    {
+      "text": "We must sacrifice the sick.",
+      "tooltip": "Immediately lose 20% of your Followers, but the plague is stopped.",
+      "effects": [
+        {
+          "type": "ModifyStat",
+          "targetStat": "Followers",
+          "op": "Multiply",
+          "value": 0.8
+        }
+      ]
+    },
+    {
+      "text": "We will pray for their recovery.",
+      "tooltip": "Lose all passive Follower generation for 120 seconds as the plague runs its course.",
+      "effects": [
+        {
+          "type": "ApplyBuff",
+          "buffId": "plague_debuff",
+          "targetStat": "FollowersPerSecond",
+          "multiplier": 0,
+          "duration": 120
+        }
+      ]
+    }
+  ]
+}

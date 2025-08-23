@@ -1,0 +1,24 @@
+{
+  "id": "event_industrial_breakthrough",
+  "title": "Industrial Breakthrough",
+  "description": "One of your followers has made a revolutionary discovery in manufacturing techniques! This will permanently increase the efficiency of all future industry.",
+  "meanTimeToHappen": 240,
+  "trigger": {
+    "minFollowers": 1000,
+    "maxCorruption": 70
+  },
+  "options": [
+    {
+      "text": "A brilliant mind!",
+      "tooltip": "Permanently increases base Production Per Second by 2.",
+      "effects": [
+        {
+          "type": "ModifyStat",
+          "targetStat": "ProductionPerSecond",
+          "op": "Add",
+          "value": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "event_dooms_day",
+  "title": "DOOMS DAY!",
+  "description": "A catastrophic event is unfolding, threatening to annihilate everything in its path",
+  "meanTimeToHappen": 2000,
+  "trigger": {
+    "minFollowers": 500,
+    "maxCorruption": 99
+  },
+  "options": [
+    {
+      "text": "NOT TODAY...",
+      "tooltip": "Increase Corruption by 200. (Instant game over)",
+      "effects": [
+        {
+          "type": "ModifyStat",
+          "targetStat": "Corruption",
+          "op": "Add",
+          "value": 200
+        }
+      ]
+    }
+  ]
+}

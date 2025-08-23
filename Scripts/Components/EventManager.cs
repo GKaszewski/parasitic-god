@@ -50,7 +50,6 @@ public partial class EventManager : Node
     
     private void FireEvent(EventDefinition eventDef)
     {
-        GD.Print($"Firing event: {eventDef.Title}");
         GetTree().Paused = true;
 
         var popup = _eventPopupScene.Instantiate<EventPopup>();

@@ -1,0 +1,35 @@
+{
+  "id": "event_unstable_rift",
+  "title": "Unstable Rift",
+  "description": "The planet groans under the weight of your power. A rift of pure corruption has torn open, spewing filth into the environment.",
+  "meanTimeToHappen": 180,
+  "trigger": {
+    "minFollowers": 2000,
+    "maxCorruption": 90
+  },
+  "options": [
+    {
+      "text": "Seal it with our power.",
+      "tooltip": "Lose a large amount of Production to seal the rift.",
+      "effects": [
+        {
+          "type": "AddResource",
+          "targetResource": "Production",
+          "value": -1000
+        }
+      ]
+    },
+    {
+      "text": "This is a necessary evil.",
+      "tooltip": "The rift remains, permanently increasing passive Corruption gain.",
+      "effects": [
+        {
+          "type": "ModifyStat",
+          "targetStat": "CorruptionPerSecond",
+          "op": "Add",
+          "value": 0.5
+        }
+      ]
+    }
+  ]
+}

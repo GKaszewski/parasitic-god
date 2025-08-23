@@ -1,0 +1,38 @@
+{
+  "id": "event_divine_inspiration",
+  "title": "Divine Inspiration",
+  "description": "You feel a surge of pure cosmic energy. You can channel this power to inspire your followers in their efforts to either build or cleanse.",
+  "meanTimeToHappen": 250,
+  "trigger": {
+    "minFollowers": 1500,
+    "maxCorruption": 75
+  },
+  "options": [
+    {
+      "text": "Inspire frantic construction.",
+      "tooltip": "Greatly increases all passive Production for 2 minutes.",
+      "effects": [
+        {
+          "type": "ApplyBuff",
+          "buffId": "inspiration_production_buff",
+          "targetStat": "ProductionPerSecond",
+          "multiplier": 3,
+          "duration": 120
+        }
+      ]
+    },
+    {
+      "text": "Inspire planetary healing.",
+      "tooltip": "Greatly reduces all passive Corruption for 2 minutes.",
+      "effects": [
+        {
+          "type": "ApplyBuff",
+          "buffId": "inspiration_cleansing_buff",
+          "targetStat": "CorruptionPerSecond",
+          "multiplier": -2,
+          "duration": 120
+        }
+      ]
+    }
+  ]
+}

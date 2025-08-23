@@ -1,0 +1,34 @@
+{
+  "id": "event_prophets_rise",
+  "title": "A Prophet's Rise",
+  "description": "A charismatic leader has emerged among your followers, inspiring them to new heights of devotion and ingenuity. How shall you guide their efforts?",
+  "meanTimeToHappen": 200,
+  "trigger": {
+    "minFollowers": 800,
+    "maxCorruption": 60
+  },
+  "options": [
+    {
+      "text": "Focus their zeal on industry.",
+      "tooltip": "Gain a large, one-time boost to Production.",
+      "effects": [
+        {
+          "type": "AddResource",
+          "targetResource": "Production",
+          "value": 750
+        }
+      ]
+    },
+    {
+      "text": "Inspire a population boom.",
+      "tooltip": "Gain a large, one-time boost to Followers.",
+      "effects": [
+        {
+          "type": "AddResource",
+          "targetResource": "Followers",
+          "value": 250
+        }
+      ]
+    }
+  ]
+}
