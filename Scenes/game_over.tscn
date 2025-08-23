@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://kcla4knp80mq"]
+
+[ext_resource type="Script" uid="uid://cbdokimy0qarg" path="res://Scripts/MainMenu.cs" id="1_8fo1c"]
+[ext_resource type="PackedScene" uid="uid://cmhvni5njpmee" path="res://Scenes/main_menu.tscn" id="2_ek8ke"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2yjh"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Game Over" type="CanvasLayer" node_paths=PackedStringArray("_startButton")]
+script = ExtResource("1_8fo1c")
+_gameScene = ExtResource("2_ek8ke")
+_startButton = NodePath("CenterContainer/VBoxContainer/Quit")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i2yjh")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 2
+bbcode_enabled = true
+text = "By your hand, this creation has been [color=#B22222][b]unmade[/b][/color].
+Your followers, who offered you their very souls, have [color=#B22222][b]perished[/b][/color].
+You have [color=#B22222][b]failed[/b][/color] your sacred charge. You are an [color=#B22222][b]abomination[/b][/color] to your brethren."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+flat = true

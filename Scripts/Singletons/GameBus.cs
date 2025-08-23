@@ -14,6 +14,9 @@ public partial class GameBus : Node
     public List<TierDefinition> FollowerTiers { get; private set; }
     public List<TierDefinition> HutTiers { get; private set; }
 
+    private PackedScene _gameOverScene = GD.Load<PackedScene>("res://Scenes/game_over.tscn");
+    private PackedScene _winScene = GD.Load<PackedScene>("res://Scenes/win_screen.tscn");
+
     private readonly GameState _gameState = new();
     private readonly GameLogic _gameLogic = new();
 
@@ -25,6 +28,7 @@ public partial class GameBus : Node
     public event Action<Buff> BuffRemoved;
     public event Action PopulationVisualsUpdated;
     public event Action<string> AgeAdvanced;
+    public event Action GameWon;
 
     public override void _EnterTree()
     {
@@ -32,11 +36,14 @@ public partial class GameBus : Node
         AllMiracles = MiracleLoader.LoadAllMiracles();
         FollowerTiers = TierLoader.LoadTiers("res://Mods/Tiers/follower_tiers.json", "user://Mods/Tiers/follower_tiers.json");
         HutTiers = TierLoader.LoadTiers("res://Mods/Tiers/hut_tiers.json","user://Mods/Tiers/hut_tiers.json");
+        
+        GameWon += OnGameWon;
     }
 
     public override void _ExitTree()
     {
         Instance = null;
+        GameWon -= OnGameWon;
     }
 
     public override void _Ready()
@@ -51,8 +58,8 @@ public partial class GameBus : Node
 
         if (_gameState.Get(Stat.Corruption) >= 100)
         {
-            GD.Print("The world has died!");
-            GetTree().Quit(); // For now
+            GetTree().ChangeSceneToPacked(_gameOverScene);
+            _gameState.Set(Stat.Corruption, 0);
         }
     }
 
@@ -110,6 +117,11 @@ public partial class GameBus : Node
         BuffRemoved?.Invoke(buff);
     }
     
+    public void NotifyGameIsWon()
+    {
+        GameWon?.Invoke();
+    }
+    
     public void SubscribeToStat(Stat stat, Action<double> listener) => _gameState.Subscribe(stat, listener);
     public void UnsubscribeFromStat(Stat stat, Action<double> listener) => _gameState.Unsubscribe(stat, listener);
     
@@ -117,4 +129,15 @@ public partial class GameBus : Node
     
     [ConsoleCommand("set_stat", "Sets the value of a specified stat.")]
     private void SetStatCommand(Stat stat, double value) => _gameState.Set(stat, value);
+    
+    [ConsoleCommand("game_over")]
+    private void GameOverCommand() => GetTree().ChangeSceneToPacked(_gameOverScene);
+    
+    [ConsoleCommand("win_game")]
+    private void WinGameCommand() => GetTree().ChangeSceneToPacked(_winScene);
+    
+    private void OnGameWon()
+    {
+        GetTree().ChangeSceneToPacked(_winScene);
+    }
 }

@@ -15,7 +15,8 @@ public static class MiracleLoader
         { "ConvertResource", typeof(ConvertResourceEffect) },
         { "ModifyStat", typeof(ModifyStatEffect) },
         { "UnlockMiracle", typeof(UnlockMiracleEffect) },
-        { "DestroySelf", typeof(DestroySelfEffect) }
+        { "DestroySelf", typeof(DestroySelfEffect) },
+        { "Win", typeof(WinEffect)}
     };
     
     public static System.Collections.Generic.Dictionary<string, MiracleDefinition> LoadAllMiracles()
