@@ -63,18 +63,17 @@ public partial class GameBus : Node
                 {
                     foreach (var id in unlockEffect.MiraclesToUnlock)
                     {
-                        if (AllMiracles.TryGetValue(id, out var def))
+                        if (AllMiracles.TryGetValue(id, out var def) && !_gameState.IsMiracleUnlocked(id))
                         {
-                            if (miraclesToUnlock.Contains(def) || _gameState.MiraclesInHand().ContainsKey(id)) continue;
                             miraclesToUnlock.Add(def);
-                            _gameState.MiraclesInHand().Add(id, def);
+                            _gameState.AddUnlockedMiracle(id);
                         }
                     }
                 }
                 else if (effect is DestroySelfEffect)
                 {
                     MiracleCompleted?.Invoke(miracle);
-                    _gameState.MiraclesInHand().Remove(miracle.Id);
+                    _gameState.RemoveUnlockedMiracle(miracle.Id);
                 }
             }
 

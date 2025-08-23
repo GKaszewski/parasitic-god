@@ -27,6 +27,7 @@ public partial class MiraclePanel : GridContainer
         {
             if (miracle.UnlockedByDefault)
             {
+                GameBus.Instance.CurrentState.AddUnlockedMiracle(miracle.Id);
                 AddButtonForMiracle(miracle);
             }
         }

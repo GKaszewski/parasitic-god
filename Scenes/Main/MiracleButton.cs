@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 using ParasiticGod.Scripts.Core;
+using ParasiticGod.Scripts.Core.Effects;
 using ParasiticGod.Scripts.Singletons;
 
 namespace ParasiticGod.Scenes.Main;
@@ -79,6 +80,11 @@ public partial class MiracleButton : Button
         {
             missingRequirements.Add($"Not enough Production ({state.Get(Stat.Production):F0} / {_miracle.ProductionRequired})");
         }
+        
+        if (AreAllUnlocksAlreadyPresent(state))
+        {
+            missingRequirements.Add("Already unlocked subsequent powers.");
+        }
 
         if (missingRequirements.Any())
         {
@@ -126,5 +132,17 @@ public partial class MiracleButton : Button
             tooltip += $"- {effect}\n";
         }
         return tooltip.TrimEnd();
+    }
+    
+    private bool AreAllUnlocksAlreadyPresent(GameState state)
+    {
+        var unlockEffect = _miracle.Effects.OfType<UnlockMiracleEffect>().FirstOrDefault();
+        
+        if (unlockEffect == null || unlockEffect.MiraclesToUnlock.Count == 0)
+        {
+            return false;
+        }
+
+        return unlockEffect.MiraclesToUnlock.All(state.IsMiracleUnlocked);
     }
 }
