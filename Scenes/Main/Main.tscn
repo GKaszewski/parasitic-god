@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bfil8sd154327"]
+[gd_scene load_steps=21 format=3 uid="uid://bfil8sd154327"]
 
 [ext_resource type="Script" uid="uid://t71ewkpa5uqs" path="res://Scenes/Main/Main.cs" id="1_p8rbg"]
 [ext_resource type="Script" uid="uid://b77vh831r1e3c" path="res://Scenes/Main/MiraclePanel.cs" id="2_hcu3t"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://co2sdpwpajjqi" path="res://Resources/Tiers/Huts/hut_tier_2.tres" id="15_epx8f"]
 [ext_resource type="Resource" uid="uid://b8k30qsd434dp" path="res://Resources/Tiers/Huts/hut_tier_3.tres" id="16_hcu3t"]
 [ext_resource type="Script" uid="uid://furbvcmw31bx" path="res://Scripts/ForestVisualizer.cs" id="18_qdkat"]
+[ext_resource type="Script" uid="uid://cw8gpeaq3yfjn" path="res://Scripts/RoadManager.cs" id="19_qdkat"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cv8e0"]
 shader = ExtResource("9_wgovn")
@@ -5593,3 +5594,8 @@ metadata/_custom_type_script = "uid://dj2wyrq07gfp2"
 script = ExtResource("18_qdkat")
 _treesContainer = NodePath("../ForestContainer")
 metadata/_custom_type_script = "uid://furbvcmw31bx"
+
+[node name="RoadManager" type="Node2D" parent="." node_paths=PackedStringArray("_markersContainer")]
+script = ExtResource("19_qdkat")
+_markersContainer = NodePath("../Hut Markers")
+metadata/_custom_type_script = "uid://cw8gpeaq3yfjn"

@@ -110,5 +110,7 @@ public partial class PopulationVisualizer : Node
         _lastKnownUnitCount = currentUnitCount;
         _lastKnownTierIndex = newTierIndex;
         _isUpdating = false;
+        
+        GameBus.Instance.NotifyPopulationVisualsUpdated();
     }
 }

@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("2_74x2g")
 Scene = ExtResource("1_ex2nw")
-Threshold = 1200000
+Threshold = 1000
 metadata/_custom_type_script = "uid://c7hh0cy0yrdt8"
