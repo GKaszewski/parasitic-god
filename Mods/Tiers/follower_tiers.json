@@ -4,31 +4,31 @@
       "tierEnum": "Tier1",
       "threshold": 0,
       "imagePath": "res://Sprites/Follower.png",
-      "scale": {"x": 0.1, "y": 0.1}
+      "scale": { "x": 0.1, "y": 0.1 }
     },
     {
       "tierEnum": "Tier2",
       "threshold": 200,
-      "imagePath": "res://Sprites/Follower.png",
-      "scale": {"x": 0.1, "y": 0.1}
+      "imagePath": "res://Sprites/follower_tier_2.png",
+      "scale": { "x": 0.1, "y": 0.1 }
     },
     {
       "tierEnum": "Tier3",
       "threshold": 500,
-      "imagePath": "res://Sprites/Follower.png",
-      "scale": {"x": 0.1, "y": 0.1}
+      "imagePath": "res://Sprites/follower_tier_3.png",
+      "scale": { "x": 0.1, "y": 0.1 }
     },
     {
       "tierEnum": "Tier4",
       "threshold": 1000,
-      "imagePath": "res://Sprites/Follower.png",
-      "scale": {"x": 0.1, "y": 0.1}
+      "imagePath": "res://Sprites/follower_tier_4.png",
+      "scale": { "x": 0.1, "y": 0.1 }
     },
     {
       "tierEnum": "Tier5",
       "threshold": 2500,
-      "imagePath": "res://Sprites/Follower.png",
-      "scale": {"x": 0.1, "y": 0.1}
+      "imagePath": "res://Sprites/follower_tier_5.png",
+      "scale": { "x": 0.1, "y": 0.1 }
     }
   ]
 }

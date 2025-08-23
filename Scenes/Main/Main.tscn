@@ -142,6 +142,12 @@ scale = Vector2(2.41247, 2.41247)
 texture = ExtResource("4_i3fi7")
 metadata/_edit_lock_ = true
 
+[node name="RoadManager" type="Node2D" parent="." node_paths=PackedStringArray("_markersContainer")]
+script = ExtResource("19_qdkat")
+_markersContainer = NodePath("../Hut Markers")
+metadata/_custom_type_script = "uid://cw8gpeaq3yfjn"
+metadata/_edit_lock_ = true
+
 [node name="Hut Markers" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -5621,10 +5627,3 @@ _unitsPerMarker = 1
 Category = 2
 _moddableVisualScene = ExtResource("17_qdkat")
 metadata/_custom_type_script = "uid://dj2wyrq07gfp2"
-
-[node name="RoadManager" type="Node2D" parent="." node_paths=PackedStringArray("_markersContainer")]
-position = Vector2(63, -27)
-script = ExtResource("19_qdkat")
-_markersContainer = NodePath("../Hut Markers")
-metadata/_custom_type_script = "uid://cw8gpeaq3yfjn"
-metadata/_edit_lock_ = true
