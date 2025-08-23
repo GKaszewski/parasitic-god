@@ -9,10 +9,13 @@ namespace ParasiticGod.Scripts.Components;
 [GlobalClass]
 public partial class PopulationVisualizer : Node
 {
+    public enum VisualCategory { Followers, Huts }
+
     [Export] private Node2D _markersContainer;
     [Export] private int _unitsPerMarker = 5;
-    [Export] private Array<TierDefinition> _tiers;
+    [Export] public VisualCategory Category { get; private set; }
     
+    private List<TierDefinition> _tiers;
     private readonly List<FollowerMarker> _markers = [];
     private long _lastKnownUnitCount = -1;
     private int _lastKnownTierIndex = -1;
@@ -20,6 +23,19 @@ public partial class PopulationVisualizer : Node
     
     public override void _Ready()
     {
+        switch (Category)
+        {
+            case VisualCategory.Followers:
+                _tiers = GameBus.Instance.FollowerTiers;
+                break;
+            case VisualCategory.Huts:
+                _tiers = GameBus.Instance.HutTiers;
+                break;
+            default:
+                GD.PushError($"PopulationVisualizer has an invalid category: {Category}");
+                return;
+        }
+        
         foreach (var child in _markersContainer.GetChildren())
         {
             if (child is FollowerMarker marker)
@@ -40,7 +56,12 @@ public partial class PopulationVisualizer : Node
     {
         if (_isUpdating) return;
         
-        var currentUnitCount = (long)newState.Get(Stat.Followers);
+        long currentUnitCount = Category switch
+        {
+            VisualCategory.Followers => (long)newState.Get(Stat.Followers),
+            VisualCategory.Huts => (long)newState.Get(Stat.Followers),
+            _ => 0
+        };
 
         var currentMarkersToShow = (int)currentUnitCount / _unitsPerMarker;
         var lastMarkersToShow = (int)_lastKnownUnitCount / _unitsPerMarker;

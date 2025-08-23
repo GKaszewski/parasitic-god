@@ -10,6 +10,8 @@ public partial class GameBus : Node
 {
     public static GameBus Instance { get; private set; }
     public Dictionary<string, MiracleDefinition> AllMiracles { get; private set; }
+    public List<TierDefinition> FollowerTiers { get; private set; }
+    public List<TierDefinition> HutTiers { get; private set; }
 
     private readonly GameState _gameState = new();
     private readonly GameLogic _gameLogic = new();
@@ -27,6 +29,8 @@ public partial class GameBus : Node
     {
         Instance = this;
         AllMiracles = MiracleLoader.LoadMiraclesFromDirectory("user://Mods/Miracles");
+        FollowerTiers = TierLoader.LoadTiersFromFile("user://Mods/Tiers/follower_tiers.json");
+        HutTiers = TierLoader.LoadTiersFromFile("user://Mods/Tiers/hut_tiers.json");
     }
 
     public override void _ExitTree()
