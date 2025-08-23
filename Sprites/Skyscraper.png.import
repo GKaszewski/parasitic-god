@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c88ltenh4ghit"
-path="res://.godot/imported/hut_tier_1.png-95c994b0565c43d199344569cb1a91ab.ctex"
+uid="uid://b7shwf6ob3qk5"
+path="res://.godot/imported/Skyscraper.png-dbe8acef55267af18c54925cfa634290.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mods/Tiers/Huts/hut_tier_1.png"
-dest_files=["res://.godot/imported/hut_tier_1.png-95c994b0565c43d199344569cb1a91ab.ctex"]
+source_file="res://Sprites/Skyscraper.png"
+dest_files=["res://.godot/imported/Skyscraper.png-dbe8acef55267af18c54925cfa634290.ctex"]
 
 [params]
 

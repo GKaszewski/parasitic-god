@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Godot;
+using Limbo.Console.Sharp;
 using ParasiticGod.Scripts.Core;
 using ParasiticGod.Scripts.Core.Effects;
 
@@ -38,6 +39,11 @@ public partial class GameBus : Node
         Instance = null;
     }
 
+    public override void _Ready()
+    {
+        RegisterConsoleCommands();
+    }
+
     public override void _Process(double delta)
     {
         _gameLogic.UpdateGameState(_gameState, delta);
@@ -66,7 +72,7 @@ public partial class GameBus : Node
                         if (AllMiracles.TryGetValue(id, out var def) && !_gameState.IsMiracleUnlocked(id))
                         {
                             miraclesToUnlock.Add(def);
-                            _gameState.AddUnlockedMiracle(id);
+                            _gameState.AddUnlockedMiracle(def.Id);
                         }
                     }
                 }
@@ -108,4 +114,7 @@ public partial class GameBus : Node
     public void UnsubscribeFromStat(Stat stat, Action<double> listener) => _gameState.Unsubscribe(stat, listener);
     
     public GameState CurrentState => _gameState;
+    
+    [ConsoleCommand("set_stat", "Sets the value of a specified stat.")]
+    private void SetStatCommand(Stat stat, double value) => _gameState.Set(stat, value);
 }

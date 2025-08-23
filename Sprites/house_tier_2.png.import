@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2wsb1jsmtifq"
-path="res://.godot/imported/follower_tier_1.png-d66a290ad46b1bb9ea69b54444ab5725.ctex"
+uid="uid://8omh4jhf3dwy"
+path="res://.godot/imported/house_tier_2.png-81b05409415d85bd1a2017792c00d1d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mods/Tiers/Followers/follower_tier_1.png"
-dest_files=["res://.godot/imported/follower_tier_1.png-d66a290ad46b1bb9ea69b54444ab5725.ctex"]
+source_file="res://Sprites/house_tier_2.png"
+dest_files=["res://.godot/imported/house_tier_2.png-81b05409415d85bd1a2017792c00d1d0.ctex"]
 
 [params]
 

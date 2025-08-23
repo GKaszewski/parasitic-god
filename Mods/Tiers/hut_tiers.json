@@ -3,13 +3,61 @@
     {
       "tierEnum": "Tier1",
       "threshold": 150,
-      "imagePath": "res://Mods/Tiers/Huts/hut_tier_1.png",
+      "imagePath": "res://Sprites/Hut.png",
       "scale": {"x": 0.05, "y": 0.05}
     },
     {
       "tierEnum": "Tier2",
       "threshold": 750,
-      "imagePath": "res://Mods/Tiers/Huts/hut_tier_2.png",
+      "imagePath": "res://Sprites/hut_tier_2.png",
+      "scale": {"x": 0.05, "y": 0.05}
+    },
+    {
+      "tierEnum": "Tier3",
+      "threshold": 1000,
+      "imagePath": "res://Sprites/hut_tier_3.png",
+      "scale": {"x": 0.05, "y": 0.05}
+    },
+    {
+      "tierEnum": "Tier4",
+      "threshold": 5000,
+      "imagePath": "res://Sprites/castle.png",
+      "scale": {"x": 0.05, "y": 0.05}
+    },
+    {
+      "tierEnum": "Tier5",
+      "threshold": 7500,
+      "imagePath": "res://Sprites/house.png",
+      "scale": {"x": 0.05, "y": 0.05}
+    },
+    {
+      "tierEnum": "Tier6",
+      "threshold": 10000,
+      "imagePath": "res://Sprites/house_tier_2.png",
+      "scale": {"x": 0.05, "y": 0.05}
+    },
+    {
+      "tierEnum": "Tier7",
+      "threshold": 50000,
+      "imagePath": "res://Sprites/house_tier_3.png",
+      "scale": {"x": 0.05, "y": 0.05}
+    },
+    {
+      "tierEnum": "Tier8",
+      "threshold": 150000,
+      "imagePath": "res://Sprites/Skyscraper.png",
+      "scale": {"x": 0.05, "y": 0.05}
+    },
+    {
+      "tierEnum": "Tier9",
+      "threshold": 350000,
+      "imagePath": "res://Sprites/skyscraper_tier_2.png",
+      "scale": {"x": 0.05, "y": 0.05}
+    },
+    {
+      "tierEnum": "Tier10",
+      "threshold": 550000,
+      "imagePath": "res://Sprites/skyscraper_tier_3.png",
       "scale": {"x": 0.05, "y": 0.05}
     }
   ]
