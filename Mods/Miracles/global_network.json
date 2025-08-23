@@ -6,7 +6,7 @@
   "effects": [
     {
       "type": "UnlockMiracle",
-      "miraclesToUnlock": [ "orbital_calculations", "construct_vessel_frame", "launch_ark" ]
+      "miraclesToUnlock": ["orbital_calculations", "construct_vessel_frame"]
     },
     { "type": "DestroySelf" }
   ]

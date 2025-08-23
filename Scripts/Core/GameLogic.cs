@@ -17,9 +17,14 @@ public class GameLogic
         var faithMultiplier = state.ActiveBuffs
             .Where(b => b.TargetStat == Stat.FaithPerFollower)
             .Aggregate(1.0f, (acc, buff) => acc * buff.Multiplier);
-        var productionMultiplier = state.ActiveBuffs
+        
+        var productionFollowerMultiplier = state.ActiveBuffs
+            .Where(b => b.TargetStat == Stat.ProductionPerFollower)
+            .Aggregate(1.0f, (acc, buff) => acc * buff.Multiplier);
+        var productionFlatMultiplier = state.ActiveBuffs
             .Where(b => b.TargetStat == Stat.ProductionPerSecond)
             .Aggregate(1.0f, (acc, buff) => acc * buff.Multiplier);
+        
         var followerMultiplier = state.ActiveBuffs
             .Where(b => b.TargetStat == Stat.FollowersPerSecond)
             .Aggregate(1.0f, (acc, buff) => acc * buff.Multiplier);
@@ -28,12 +33,16 @@ public class GameLogic
             .Aggregate(1.0f, (acc, buff) => acc * buff.Multiplier);
         
         var faithPerSecond = state.Get(Stat.Followers) * state.Get(Stat.FaithPerFollower) * faithMultiplier;
-        var productionPerSecond = state.Get(Stat.ProductionPerSecond) * productionMultiplier;
+        
+        var productionFromFollowers = state.Get(Stat.Followers) * state.Get(Stat.ProductionPerFollower) * productionFollowerMultiplier;
+        var productionFromIndustry = state.Get(Stat.ProductionPerSecond) * productionFlatMultiplier;
+        var totalProductionPerSecond = productionFromFollowers + productionFromIndustry;
+        
         var followersPerSecond = state.Get(Stat.FollowersPerSecond) * followerMultiplier;
         var corruptionPerSecond = state.Get(Stat.CorruptionPerSecond) * corruptionMultiplier;
         
         state.Modify(Stat.Faith, faithPerSecond * delta);
-        state.Modify(Stat.Production, productionPerSecond * delta);
+        state.Modify(Stat.Production, totalProductionPerSecond * delta);
         state.Modify(Stat.Corruption, corruptionPerSecond * delta);
         state.Modify(Stat.Followers, followersPerSecond * delta);
 

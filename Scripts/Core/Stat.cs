@@ -14,5 +14,6 @@ public enum Stat
     FollowersPerSecond,
     
     // Modifying Stats
-    FaithPerFollower
+    FaithPerFollower,
+    ProductionPerFollower,
 }
