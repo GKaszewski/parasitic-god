@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Godot;
-using Godot.Collections;
 using ParasiticGod.Scripts.Core;
 using ParasiticGod.Scripts.Singletons;
 
@@ -9,7 +8,7 @@ namespace ParasiticGod.Scripts.Components;
 [GlobalClass]
 public partial class PopulationVisualizer : Node
 {
-    public enum VisualCategory { Followers, Huts }
+    public enum VisualCategory { Followers, Huts, Temples }
 
     [Export] private Node2D _markersContainer;
     [Export] private int _unitsPerMarker = 5;
@@ -31,6 +30,9 @@ public partial class PopulationVisualizer : Node
                 break;
             case VisualCategory.Huts:
                 _tiers = GameBus.Instance.HutTiers;
+                break;
+            case VisualCategory.Temples:
+                _tiers = GameBus.Instance.TempleTiers;
                 break;
             default:
                 GD.PushError($"PopulationVisualizer has an invalid category: {Category}");
@@ -61,6 +63,7 @@ public partial class PopulationVisualizer : Node
         {
             VisualCategory.Followers => (long)newState.Get(Stat.Followers),
             VisualCategory.Huts => (long)newState.Get(Stat.Followers),
+            VisualCategory.Temples => (long)newState.Get(Stat.Followers),
             _ => 0
         };
 

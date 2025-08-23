@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bfil8sd154327"]
+[gd_scene load_steps=22 format=3 uid="uid://bfil8sd154327"]
 
 [ext_resource type="Script" uid="uid://t71ewkpa5uqs" path="res://Scenes/Main/Main.cs" id="1_p8rbg"]
 [ext_resource type="Script" uid="uid://b77vh831r1e3c" path="res://Scenes/Main/MiraclePanel.cs" id="2_hcu3t"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://8w7tvsgkev1y" path="res://Scenes/tree.tscn" id="8_hcu3t"]
 [ext_resource type="Shader" uid="uid://bf8nk145fjkgh" path="res://Shaders/corruption_shader.gdshader" id="9_wgovn"]
 [ext_resource type="PackedScene" uid="uid://cqkye7yykakns" path="res://Scenes/Followers/FollowerMarker.tscn" id="11_5ci8a"]
+[ext_resource type="PackedScene" uid="uid://wysxqe44rxhf" path="res://Scenes/TempleMarker.tscn" id="14_udh0u"]
 [ext_resource type="PackedScene" uid="uid://xk2xirjd1sma" path="res://Scenes/moddable_visual.tscn" id="17_qdkat"]
 [ext_resource type="Script" uid="uid://furbvcmw31bx" path="res://Scripts/Components/ForestVisualizer.cs" id="18_qdkat"]
 [ext_resource type="Script" uid="uid://cw8gpeaq3yfjn" path="res://Scripts/Components/RoadManager.cs" id="19_qdkat"]
@@ -142,6 +143,7 @@ texture = ExtResource("4_i3fi7")
 metadata/_edit_lock_ = true
 
 [node name="Hut Markers" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="HutMarker" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
 position = Vector2(-1, -29)
@@ -206,7 +208,52 @@ position = Vector2(65, 472)
 [node name="HutMarker21" parent="Hut Markers" instance=ExtResource("6_cv8e0")]
 position = Vector2(-209, 28)
 
+[node name="TemplesContainer" type="Node2D" parent="."]
+
+[node name="HutMarker" parent="TemplesContainer" instance=ExtResource("14_udh0u")]
+
+[node name="HutMarker2" parent="TemplesContainer" instance=ExtResource("14_udh0u")]
+position = Vector2(78, -66)
+
+[node name="HutMarker3" parent="TemplesContainer" instance=ExtResource("14_udh0u")]
+position = Vector2(337, -80)
+
+[node name="HutMarker4" parent="TemplesContainer" instance=ExtResource("14_udh0u")]
+position = Vector2(357, 67)
+
+[node name="HutMarker5" parent="TemplesContainer" instance=ExtResource("14_udh0u")]
+position = Vector2(545, 76)
+
+[node name="HutMarker6" parent="TemplesContainer" instance=ExtResource("14_udh0u")]
+position = Vector2(595, -67)
+
+[node name="HutMarker7" parent="TemplesContainer" instance=ExtResource("14_udh0u")]
+position = Vector2(572, -243)
+
+[node name="HutMarker8" parent="TemplesContainer" instance=ExtResource("14_udh0u")]
+position = Vector2(214, -237)
+
+[node name="HutMarker9" parent="TemplesContainer" instance=ExtResource("14_udh0u")]
+position = Vector2(-112, -46)
+
+[node name="HutMarker11" parent="TemplesContainer" instance=ExtResource("14_udh0u")]
+position = Vector2(-140, 206)
+
+[node name="HutMarker12" parent="TemplesContainer" instance=ExtResource("14_udh0u")]
+position = Vector2(234, 161)
+
+[node name="HutMarker13" parent="TemplesContainer" instance=ExtResource("14_udh0u")]
+position = Vector2(187, 425)
+
+[node name="HutMarker14" parent="TemplesContainer" instance=ExtResource("14_udh0u")]
+position = Vector2(-48, 338)
+rotation = -0.0412825
+
+[node name="HutMarker10" parent="TemplesContainer" instance=ExtResource("14_udh0u")]
+position = Vector2(-242, 10)
+
 [node name="Followers Markers" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="FollowerMarker" parent="Followers Markers" instance=ExtResource("11_5ci8a")]
 
@@ -265,6 +312,7 @@ position = Vector2(-88, -32)
 position = Vector2(82, -234)
 
 [node name="ForestContainer" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Tree" parent="ForestContainer" instance=ExtResource("8_hcu3t")]
 position = Vector2(214, 38)
@@ -5566,7 +5614,17 @@ script = ExtResource("18_qdkat")
 _treesContainer = NodePath("../ForestContainer")
 metadata/_custom_type_script = "uid://furbvcmw31bx"
 
+[node name="TemplesVisualizer" type="Node" parent="." node_paths=PackedStringArray("_markersContainer")]
+script = ExtResource("8_cv8e0")
+_markersContainer = NodePath("../TemplesContainer")
+_unitsPerMarker = 1
+Category = 2
+_moddableVisualScene = ExtResource("17_qdkat")
+metadata/_custom_type_script = "uid://dj2wyrq07gfp2"
+
 [node name="RoadManager" type="Node2D" parent="." node_paths=PackedStringArray("_markersContainer")]
+position = Vector2(63, -27)
 script = ExtResource("19_qdkat")
 _markersContainer = NodePath("../Hut Markers")
 metadata/_custom_type_script = "uid://cw8gpeaq3yfjn"
+metadata/_edit_lock_ = true

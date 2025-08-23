@@ -13,6 +13,7 @@ public partial class GameBus : Node
     public Dictionary<string, MiracleDefinition> AllMiracles { get; private set; }
     public List<TierDefinition> FollowerTiers { get; private set; }
     public List<TierDefinition> HutTiers { get; private set; }
+    public List<TierDefinition> TempleTiers { get; private set; }
 
     private PackedScene _gameOverScene = GD.Load<PackedScene>("res://Scenes/game_over.tscn");
     private PackedScene _winScene = GD.Load<PackedScene>("res://Scenes/win_screen.tscn");
@@ -36,6 +37,7 @@ public partial class GameBus : Node
         AllMiracles = MiracleLoader.LoadAllMiracles();
         FollowerTiers = TierLoader.LoadTiers("res://Mods/Tiers/follower_tiers.json", "user://Mods/Tiers/follower_tiers.json");
         HutTiers = TierLoader.LoadTiers("res://Mods/Tiers/hut_tiers.json","user://Mods/Tiers/hut_tiers.json");
+        TempleTiers = TierLoader.LoadTiers("res://Mods/Tiers/temple_tiers.json","user://Mods/Tiers/temple_tiers.json");
         
         GameWon += OnGameWon;
     }

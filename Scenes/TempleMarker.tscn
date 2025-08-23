@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://wysxqe44rxhf"]
+
+[ext_resource type="Script" uid="uid://djaf0gv8s7qib" path="res://Scripts/FollowerMarker.cs" id="1_x8f1l"]
+[ext_resource type="Texture2D" uid="uid://dcs48aa84w21u" path="res://icon.svg" id="2_tc18m"]
+
+[node name="HutMarker" type="Marker2D"]
+script = ExtResource("1_x8f1l")
+metadata/_custom_type_script = "uid://djaf0gv8s7qib"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.406241, 0.161792, 0.609211, 1)
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("2_tc18m")
