@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bfil8sd154327"]
+[gd_scene load_steps=26 format=3 uid="uid://bfil8sd154327"]
 
 [ext_resource type="Script" uid="uid://t71ewkpa5uqs" path="res://Scenes/Main/Main.cs" id="1_p8rbg"]
 [ext_resource type="Script" uid="uid://b77vh831r1e3c" path="res://Scenes/Main/MiraclePanel.cs" id="2_hcu3t"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://xk2xirjd1sma" path="res://Scenes/moddable_visual.tscn" id="17_qdkat"]
 [ext_resource type="Script" uid="uid://furbvcmw31bx" path="res://Scripts/Components/ForestVisualizer.cs" id="18_qdkat"]
 [ext_resource type="Script" uid="uid://cw8gpeaq3yfjn" path="res://Scripts/Components/RoadManager.cs" id="19_qdkat"]
+[ext_resource type="Script" uid="uid://2ipbgwlx1ld1" path="res://Scripts/Components/EventManager.cs" id="22_iwp64"]
+[ext_resource type="PackedScene" uid="uid://gdejd44km3co" path="res://Scenes/UI/event_popup.tscn" id="23_4etfk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xggvw"]
 bg_color = Color(0, 0, 0, 0.733333)
@@ -41,7 +43,10 @@ _productionLabel = NodePath("UiLayer/Control/Main/Top/ProductionLabel")
 _miraclePanel = NodePath("UiLayer/Control/Main/ScrollContainer/Bottom")
 _worldSprite = NodePath("World Sprite")
 
-[node name="UiLayer" type="CanvasLayer" parent="."]
+[node name="UiLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("_pauseButton", "_pauseMenu")]
+script = ExtResource("11_xggvw")
+_pauseButton = NodePath("MarginContainer/Button")
+_pauseMenu = NodePath("PanelContainer")
 
 [node name="Control" type="Control" parent="UiLayer"]
 layout_mode = 3
@@ -52,6 +57,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="Main" type="MarginContainer" parent="UiLayer/Control"]
 layout_mode = 1
@@ -62,6 +68,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+mouse_filter = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
@@ -71,6 +78,7 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+mouse_filter = 2
 alignment = 1
 
 [node name="FaithLabel" type="Label" parent="UiLayer/Control/Main/Top"]
@@ -128,39 +136,26 @@ stream = ExtResource("6_32vk6")
 [node name="BuffAdded" type="AudioStreamPlayer" parent="UiLayer/Control/Main/ScrollContainer2/HBoxContainer"]
 stream = ExtResource("7_crdpj")
 
-[node name="Notification Layer" type="CanvasLayer" parent="." node_paths=PackedStringArray("_sfx")]
-layer = 3
-script = ExtResource("6_iwp64")
-_notificationLabelScene = ExtResource("7_4etfk")
-_sfx = NodePath("Advance Age")
-
-[node name="Advance Age" type="AudioStreamPlayer" parent="Notification Layer"]
-stream = ExtResource("8_4etfk")
-
-[node name="PauseManager" type="CanvasLayer" parent="." node_paths=PackedStringArray("_pauseButton", "_pauseMenu")]
-script = ExtResource("11_xggvw")
-_pauseButton = NodePath("MarginContainer/Button")
-_pauseMenu = NodePath("PanelContainer")
-
-[node name="MarginContainer" type="MarginContainer" parent="PauseManager"]
+[node name="MarginContainer" type="MarginContainer" parent="UiLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="Button" type="Button" parent="PauseManager/MarginContainer"]
+[node name="Button" type="Button" parent="UiLayer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 focus_mode = 0
 text = "Pause"
 
-[node name="PanelContainer" type="PanelContainer" parent="PauseManager"]
+[node name="PanelContainer" type="PanelContainer" parent="UiLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -171,13 +166,29 @@ size_flags_vertical = 4
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xggvw")
 
-[node name="Label" type="Label" parent="PauseManager/PanelContainer"]
+[node name="Label" type="Label" parent="UiLayer/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="Notification Layer" type="CanvasLayer" parent="." node_paths=PackedStringArray("_sfx")]
+layer = 3
+script = ExtResource("6_iwp64")
+_notificationLabelScene = ExtResource("7_4etfk")
+_sfx = NodePath("Advance Age")
+
+[node name="Advance Age" type="AudioStreamPlayer" parent="Notification Layer"]
+stream = ExtResource("8_4etfk")
+
+[node name="CenterContainer" type="CenterContainer" parent="Notification Layer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -5673,3 +5684,9 @@ _unitsPerMarker = 1
 Category = 2
 _moddableVisualScene = ExtResource("17_qdkat")
 metadata/_custom_type_script = "uid://dj2wyrq07gfp2"
+
+[node name="EventManager" type="Node" parent="." node_paths=PackedStringArray("_eventPopupContainer")]
+script = ExtResource("22_iwp64")
+_eventPopupScene = ExtResource("23_4etfk")
+_eventPopupContainer = NodePath("../Notification Layer/CenterContainer")
+metadata/_custom_type_script = "uid://2ipbgwlx1ld1"

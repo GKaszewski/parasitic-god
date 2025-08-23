@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Godot;
 using Godot.Collections;
 using Newtonsoft.Json;
@@ -86,7 +87,17 @@ public static class MiracleLoader
             Effects = []
         };
 
-        foreach (var effectDto in miracleDto.Effects)
+        var effects = ConvertEffectDtos(miracleDto.Effects);
+        miracleDef.Effects = effects;
+        return miracleDef;
+    }
+    
+    public static Array<Effect> ConvertEffectDtos(List<EffectDto> dtos)
+    {
+        var effects = new Array<Effect>();
+        if (dtos == null) return effects;
+
+        foreach (var effectDto in dtos)
         {
             if (EffectRegistry.TryGetValue(effectDto.Type, out var effectType))
             {
@@ -118,11 +129,9 @@ public static class MiracleLoader
                         unlockMiracleEffect.MiraclesToUnlock = new Array<string>(effectDto.MiraclesToUnlock);
                         break;
                 }
-
-                miracleDef.Effects.Add(effectInstance);
+                effects.Add(effectInstance);
             }
         }
-
-        return miracleDef;
+        return effects;
     }
 }

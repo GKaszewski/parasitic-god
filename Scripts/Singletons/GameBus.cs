@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Godot;
+using Godot.Collections;
 using Limbo.Console.Sharp;
 using ParasiticGod.Scripts.Core;
 using ParasiticGod.Scripts.Core.Effects;
@@ -10,10 +11,11 @@ namespace ParasiticGod.Scripts.Singletons;
 public partial class GameBus : Node
 {
     public static GameBus Instance { get; private set; }
-    public Dictionary<string, MiracleDefinition> AllMiracles { get; private set; }
+    public System.Collections.Generic.Dictionary<string, MiracleDefinition> AllMiracles { get; private set; }
     public List<TierDefinition> FollowerTiers { get; private set; }
     public List<TierDefinition> HutTiers { get; private set; }
     public List<TierDefinition> TempleTiers { get; private set; }
+    public List<EventDefinition> AllEvents { get; private set; }
 
     private PackedScene _gameOverScene = GD.Load<PackedScene>("res://Scenes/game_over.tscn");
     private PackedScene _winScene = GD.Load<PackedScene>("res://Scenes/win_screen.tscn");
@@ -35,6 +37,7 @@ public partial class GameBus : Node
     {
         Instance = this;
         AllMiracles = MiracleLoader.LoadAllMiracles();
+        AllEvents = EventLoader.LoadAllEvents();
         FollowerTiers = TierLoader.LoadTiers("res://Mods/Tiers/follower_tiers.json", "user://Mods/Tiers/follower_tiers.json");
         HutTiers = TierLoader.LoadTiers("res://Mods/Tiers/hut_tiers.json","user://Mods/Tiers/hut_tiers.json");
         TempleTiers = TierLoader.LoadTiers("res://Mods/Tiers/temple_tiers.json","user://Mods/Tiers/temple_tiers.json");
@@ -122,6 +125,15 @@ public partial class GameBus : Node
     public void NotifyGameIsWon()
     {
         GameWon?.Invoke();
+    }
+    
+    public void ExecuteEffects(Array<Effect> effects)
+    {
+        foreach (var effect in effects)
+        {
+            effect.Execute(_gameState);
+        }
+        GetTree().Paused = false;
     }
     
     public void SubscribeToStat(Stat stat, Action<double> listener) => _gameState.Subscribe(stat, listener);

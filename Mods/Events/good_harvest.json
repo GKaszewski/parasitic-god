@@ -1,0 +1,23 @@
+{
+  "id": "event_good_harvest",
+  "title": "Bountiful Harvest",
+  "description": "A miraculous confluence of weather and soil fertility has led to an unexpectedly large harvest. Our granaries are overflowing!",
+  "meanTimeToHappen": 120,
+  "trigger": {
+    "minFollowers": 100,
+    "maxCorruption": 50
+  },
+  "options": [
+    {
+      "text": "A true blessing!",
+      "tooltip": "Gain a large amount (500) of Faith.",
+      "effects": [
+        {
+          "type": "AddResource",
+          "targetResource": "Faith",
+          "value": 500
+        }
+      ]
+    }
+  ]
+}
