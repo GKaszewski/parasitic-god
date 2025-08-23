@@ -11,6 +11,7 @@ public enum Stat
     // Passive Generation Stats
     ProductionPerSecond,
     CorruptionPerSecond,
+    FollowersPerSecond,
     
     // Modifying Stats
     FaithPerFollower

@@ -8,6 +8,7 @@ public class GameState
 {
     private readonly Dictionary<Stat, StatData> _stats = new();
     private readonly HashSet<string> _unlockedMiracleIds = [];
+    private readonly HashSet<string> _activeBuffIds = [];
     
     public List<Buff> ActiveBuffs { get; } = [];
     
@@ -38,4 +39,8 @@ public class GameState
     public bool IsMiracleUnlocked(string miracleId) => _unlockedMiracleIds.Contains(miracleId);
     public void AddUnlockedMiracle(string miracleId) => _unlockedMiracleIds.Add(miracleId);
     public void RemoveUnlockedMiracle(string miracleId) => _unlockedMiracleIds.Remove(miracleId);
+    
+    public bool IsBuffActive(string buffId) => _activeBuffIds.Contains(buffId);
+    public void AddActiveBuff(string buffId) => _activeBuffIds.Add(buffId);
+    public void RemoveActiveBuff(string buffId) => _activeBuffIds.Remove(buffId);
 }

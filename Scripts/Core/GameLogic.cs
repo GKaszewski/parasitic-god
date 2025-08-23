@@ -17,6 +17,7 @@ public class GameLogic
         state.Modify(Stat.Faith, faithPerSecond * delta);
         state.Modify(Stat.Production, state.Get(Stat.ProductionPerSecond) * delta);
         state.Modify(Stat.Corruption, state.Get(Stat.CorruptionPerSecond) * delta);
+        state.Modify(Stat.Followers, state.Get(Stat.FollowersPerSecond) * delta);
 
         for (var i = state.ActiveBuffs.Count - 1; i >= 0; i--)
         {
@@ -26,6 +27,7 @@ public class GameLogic
             {
                 GameBus.Instance.NotifyBuffRemoved(buff);
                 state.ActiveBuffs.RemoveAt(i);
+                state.RemoveActiveBuff(buff.BuffId);
             }
         }
     }

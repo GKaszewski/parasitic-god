@@ -7,6 +7,7 @@
   "effects": [
     {
       "type": "ApplyBuff",
+      "buffId": "harness_the_sun",
       "targetStat": "CorruptionPerSecond",
       "multiplier": -1.5,
       "duration": 120

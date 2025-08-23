@@ -85,6 +85,11 @@ public partial class MiracleButton : Button
         {
             missingRequirements.Add("Already unlocked subsequent powers.");
         }
+        
+        if (IsBuffAlreadyActive(state))
+        {
+            missingRequirements.Add("This buff is already active.");
+        }
 
         if (missingRequirements.Any())
         {
@@ -144,5 +149,17 @@ public partial class MiracleButton : Button
         }
 
         return unlockEffect.MiraclesToUnlock.All(state.IsMiracleUnlocked);
+    }
+    
+    private bool IsBuffAlreadyActive(GameState state)
+    {
+        var buffEffect = _miracle.Effects.OfType<ApplyBuffEffect>().FirstOrDefault();
+        
+        if (buffEffect == null || string.IsNullOrEmpty(buffEffect.BuffId))
+        {
+            return false;
+        }
+
+        return state.IsBuffActive(buffEffect.BuffId);
     }
 }

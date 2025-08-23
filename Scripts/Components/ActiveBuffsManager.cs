@@ -34,16 +34,16 @@ public partial class ActiveBuffsManager : Node
         var buffInstance = _activeBuffScene.Instantiate<ActiveBuffUi>();
         AddChild(buffInstance);
         buffInstance.SetBuff(buff);
-        _activeBuffUis.Add(buff.Id, buffInstance);
+        _activeBuffUis.Add(buff.InstanceId, buffInstance);
         _buffAddedSfx?.Play();
     }
 
     private void OnBuffRemoved(Buff buff)
     {
-        if (_activeBuffUis.TryGetValue(buff.Id, out var buffUi))
+        if (_activeBuffUis.TryGetValue(buff.InstanceId, out var buffUi))
         {
             buffUi.QueueFree();
-            _activeBuffUis.Remove(buff.Id);
+            _activeBuffUis.Remove(buff.InstanceId);
             _buffRemovedSfx?.Play();
         }
     }

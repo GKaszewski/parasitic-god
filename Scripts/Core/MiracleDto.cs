@@ -12,6 +12,7 @@ public class EffectDto
     public double Value { get; set; }
 
     // --- For "ApplyBuff" Effect ---
+    public string BuffId { get; set; }
     public float Multiplier { get; set; }
     public double Duration { get; set; }
 
