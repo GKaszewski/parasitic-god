@@ -69,6 +69,7 @@ public static class MiracleLoader
             Name = miracleDto.Name,
             FaithCost = miracleDto.FaithCost,
             FollowersRequired = miracleDto.FollowersRequired,
+            ProductionRequired = miracleDto.ProductionRequired,
             Effects = []
         };
 

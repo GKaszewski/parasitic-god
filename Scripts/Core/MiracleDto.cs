@@ -32,6 +32,7 @@ public class MiracleDto
     public string Name { get; set; }
     public double FaithCost { get; set; }
     public long FollowersRequired { get; set; }
+    public double ProductionRequired { get; set; }
     public bool UnlockedByDefault { get; set; }
     public List<EffectDto> Effects { get; set; }
 }

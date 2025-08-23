@@ -30,12 +30,15 @@ public class GameLogic
 
     public bool TryToPerformMiracle(GameState state, MiracleDefinition miracle)
     {
-        if (state.Get(Stat.Faith) < miracle.FaithCost || state.Get(Stat.Followers) < miracle.FollowersRequired)
+        if (state.Get(Stat.Faith) < miracle.FaithCost || 
+            state.Get(Stat.Followers) < miracle.FollowersRequired ||
+            state.Get(Stat.Production) < miracle.ProductionRequired)
         {
             return false;
         }
 
         state.Modify(Stat.Faith, -miracle.FaithCost);
+        state.Modify(Stat.Production, -miracle.ProductionRequired);
     
         if (miracle.Effects != null)
         {

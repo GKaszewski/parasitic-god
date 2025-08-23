@@ -13,6 +13,7 @@ public partial class MiracleDefinition : Resource
     [Export] public string Name { get; set; }
     [Export] public double FaithCost { get; set; }
     [Export] public long FollowersRequired { get; set; }
+    [Export] public double ProductionRequired { get; set; } 
 
     [Export] public Array<Effect> Effects { get; set; }
 }

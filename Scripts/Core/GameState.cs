@@ -21,8 +21,8 @@ public class GameState
         Set(Stat.Faith, 50);
         Set(Stat.Followers, 40);
         Set(Stat.FaithPerFollower, 0.5);
-        Set(Stat.ProductionPerSecond, 1.0);
-        Set(Stat.CorruptionPerSecond, 0.1);
+        Set(Stat.ProductionPerSecond, 0.0);
+        Set(Stat.CorruptionPerSecond, 0.01);
     }
     
     public double Get(Stat stat) => _stats[stat].Value;
