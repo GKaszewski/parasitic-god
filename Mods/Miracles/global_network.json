@@ -1,0 +1,13 @@
+{
+  "name": "Global Network",
+  "faithCost": 15000,
+  "followersRequired": 5000,
+  "unlockedByDefault": false,
+  "effects": [
+    {
+      "type": "UnlockMiracle",
+      "miraclesToUnlock": [ "orbital_calculations", "construct_vessel_frame", "launch_ark" ]
+    },
+    { "type": "DestroySelf" }
+  ]
+}

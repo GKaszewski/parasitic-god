@@ -1,0 +1,14 @@
+{
+  "name": "Form Settlement",
+  "faithCost": 300,
+  "followersRequired": 150,
+  "unlockedByDefault": true,
+  "effects": [
+    {
+      "type": "UnlockMiracle",
+      "miraclesToUnlock": [ "erect_shrine", "communal_effort" ]
+    },
+    { "type": "DestroySelf" }
+  ],
+  "advancesToAge": "The Settlement Age"
+}

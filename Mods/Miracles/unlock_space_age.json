@@ -1,0 +1,14 @@
+{
+  "name": "Age of Space",
+  "faithCost": 10000,
+  "followersRequired": 5000,
+  "unlockedByDefault": false,
+  "effects": [
+    {
+      "type": "UnlockMiracle",
+      "miraclesToUnlock": [ "global_network" ]
+    },
+    { "type": "DestroySelf" }
+  ],
+  "advancesToAge": "The Space Age"
+}

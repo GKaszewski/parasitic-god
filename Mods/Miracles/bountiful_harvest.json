@@ -7,12 +7,12 @@
 	{
 	  "type": "AddResource",
 	  "targetResource": "Followers",
-	  "value": 10
+	  "value": 100
 	},
 	{
 	  "type": "AddResource",
 	  "targetResource": "Corruption",
-	  "value": 2
+	  "value": 0.02
 	}
   ]
 }

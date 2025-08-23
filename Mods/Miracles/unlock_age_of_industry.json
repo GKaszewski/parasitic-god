@@ -1,0 +1,15 @@
+{
+  "name": "Age of Industry",
+  "faithCost": 1500,
+  "followersRequired": 750,
+  "productionRequired": 50,
+  "unlockedByDefault": false,
+  "effects": [
+    {
+      "type": "UnlockMiracle",
+      "miraclesToUnlock": [ "inspire_invention", "exploit_earth" ]
+    },
+    { "type": "DestroySelf" }
+  ],
+  "advancesToAge": "The Industrial Age"
+}

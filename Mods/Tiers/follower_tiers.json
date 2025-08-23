@@ -1,0 +1,29 @@
+{
+  "tiers": [
+    {
+      "tierEnum": "Tier1",
+      "threshold": 0,
+      "scenePath": "res://Scenes/Followers/followers_tier_1.tscn"
+    },
+    {
+      "tierEnum": "Tier2",
+      "threshold": 200,
+      "scenePath": "res://Scenes/Followers/followers_tier_2.tscn"
+    },
+    {
+      "tierEnum": "Tier3",
+      "threshold": 500,
+      "scenePath": "res://Scenes/Followers/followers_tier_3.tscn"
+    },
+    {
+      "tierEnum": "Tier4",
+      "threshold": 1000,
+      "scenePath": "res://Scenes/Followers/followers_tier_4.tscn"
+    },
+    {
+      "tierEnum": "Tier5",
+      "threshold": 2500,
+      "scenePath": "res://Scenes/Followers/followers_tier_5.tscn"
+    }
+  ]
+}

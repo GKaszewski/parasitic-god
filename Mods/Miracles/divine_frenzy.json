@@ -6,7 +6,7 @@
   "effects": [
     {
       "type": "ApplyBuff",
-      "targetBuffStat": "FaithGeneration",
+      "targetBuffStat": "FaithPerFollower",
       "multiplier": 2.0,
       "duration": 30
     }

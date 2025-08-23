@@ -1,0 +1,16 @@
+{
+  "name": "Project: Ark Frame",
+  "faithCost": 20000,
+  "followersRequired": 5000,
+  "unlockedByDefault": false,
+  "effects": [
+    {
+      "type": "ConvertResource",
+      "fromResource": "Production",
+      "fromAmount": 5000,
+      "toResource": "Faith",
+      "toAmount": 0
+    },
+    { "type": "DestroySelf" }
+  ]
+}

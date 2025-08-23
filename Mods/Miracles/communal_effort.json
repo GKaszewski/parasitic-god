@@ -1,0 +1,22 @@
+{
+  "name": "Communal Effort",
+  "faithCost": 400,
+  "followersRequired": 250,
+  "unlockedByDefault": false,
+  "effects": [
+    {
+      "type": "AddResource",
+      "targetResource": "Production",
+      "value": 50
+    },
+    {
+      "type": "AddResource",
+      "targetResource": "Corruption",
+      "value": 3
+    },
+    {
+      "type": "UnlockMiracle",
+      "miraclesToUnlock": [ "unlock_age_of_industry" ]
+    }
+  ]
+}

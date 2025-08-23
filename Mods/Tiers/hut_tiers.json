@@ -1,0 +1,19 @@
+{
+  "tiers": [
+    {
+      "tierEnum": "Tier1",
+      "threshold": 150,
+      "scenePath": "res://Scenes/Huts/hut_tier_1.tscn"
+    },
+    {
+      "tierEnum": "Tier2",
+      "threshold": 750,
+      "scenePath": "res://Scenes/Huts/hut_tier_2.tscn"
+    },
+    {
+      "tierEnum": "Tier3",
+      "threshold": 2000,
+      "scenePath": "res://Scenes/Huts/hut_tier_3.tscn"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Project: Trajectory",
+  "faithCost": 50000,
+  "followersRequired": 5000,
+  "unlockedByDefault": false,
+  "effects": [
+    { "type": "DestroySelf" }
+  ]
+}

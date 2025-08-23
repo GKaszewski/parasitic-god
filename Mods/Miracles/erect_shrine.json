@@ -1,0 +1,19 @@
+{
+  "name": "Erect Shrine",
+  "faithCost": 750,
+  "followersRequired": 200,
+  "unlockedByDefault": false,
+  "effects": [
+    {
+      "type": "ModifyStat",
+      "targetStat": "FaithPerFollower",
+      "op": "Add",
+      "value": 0.2
+    },
+    {
+      "type": "AddResource",
+      "targetResource": "Corruption",
+      "value": 5
+    }
+  ]
+}
