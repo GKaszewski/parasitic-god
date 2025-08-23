@@ -6,6 +6,7 @@ namespace ParasiticGod.Scripts.Core;
 public class EffectDto
 {
     public string Type { get; set; }
+
     // --- For "AddResource" Effect ---
     public Stat TargetResource { get; set; }
     public double Value { get; set; }
@@ -19,11 +20,11 @@ public class EffectDto
     public double FromAmount { get; set; }
     public Stat ToResource { get; set; }
     public double ToAmount { get; set; }
-    
+
     // --- For "ModifyStat" Effect ---
     public Stat TargetStat { get; set; }
     public ModifyStatEffect.Operation Op { get; set; }
-    
+
     public List<string> MiraclesToUnlock { get; set; }
 }
 
@@ -34,5 +35,6 @@ public class MiracleDto
     public long FollowersRequired { get; set; }
     public double ProductionRequired { get; set; }
     public bool UnlockedByDefault { get; set; }
+    public string AdvancesToAge { get; set; }
     public List<EffectDto> Effects { get; set; }
 }

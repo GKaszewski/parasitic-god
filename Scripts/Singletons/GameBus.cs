@@ -21,6 +21,7 @@ public partial class GameBus : Node
     public event Action<Buff> BuffAdded;
     public event Action<Buff> BuffRemoved;
     public event Action PopulationVisualsUpdated;
+    public event Action<string> AgeAdvanced;
 
     public override void _EnterTree()
     {
@@ -73,6 +74,11 @@ public partial class GameBus : Node
             if (miraclesToUnlock.Count > 0)
             {
                 MiraclesUnlocked?.Invoke(miraclesToUnlock);
+            }
+            
+            if (!string.IsNullOrEmpty(miracle.AdvancesToAge))
+            {
+                AgeAdvanced?.Invoke(miracle.AdvancesToAge);
             }
         }
     }

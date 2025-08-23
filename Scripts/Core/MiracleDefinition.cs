@@ -14,6 +14,7 @@ public partial class MiracleDefinition : Resource
     [Export] public double FaithCost { get; set; }
     [Export] public long FollowersRequired { get; set; }
     [Export] public double ProductionRequired { get; set; } 
+    public string AdvancesToAge { get; set; }
 
     [Export] public Array<Effect> Effects { get; set; }
 }

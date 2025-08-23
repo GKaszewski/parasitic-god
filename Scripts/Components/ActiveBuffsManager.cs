@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Godot;
-using ParasiticGod.Scripts.Core;
+using ParasiticGod.Scripts;
 using ParasiticGod.Scripts.Core.Effects;
 using ParasiticGod.Scripts.Singletons;
 
-namespace ParasiticGod.Scripts;
+namespace ParasiticGod.Scripts.Components;
 
 [GlobalClass]
 public partial class ActiveBuffsManager : Node

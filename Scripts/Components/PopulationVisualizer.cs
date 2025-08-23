@@ -4,7 +4,7 @@ using Godot.Collections;
 using ParasiticGod.Scripts.Core;
 using ParasiticGod.Scripts.Singletons;
 
-namespace ParasiticGod.Scripts;
+namespace ParasiticGod.Scripts.Components;
 
 [GlobalClass]
 public partial class PopulationVisualizer : Node

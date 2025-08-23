@@ -1,13 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://bfil8sd154327"]
+[gd_scene load_steps=25 format=3 uid="uid://bfil8sd154327"]
 
 [ext_resource type="Script" uid="uid://t71ewkpa5uqs" path="res://Scenes/Main/Main.cs" id="1_p8rbg"]
 [ext_resource type="Script" uid="uid://b77vh831r1e3c" path="res://Scenes/Main/MiraclePanel.cs" id="2_hcu3t"]
-[ext_resource type="PackedScene" uid="uid://rj1fsdlhju5y" path="res://Scenes/Main/miracle_button.tscn" id="3_qdkat"]
+[ext_resource type="PackedScene" uid="uid://rj1fsdlhju5y" path="res://Scenes/UI/miracle_button.tscn" id="3_qdkat"]
 [ext_resource type="Texture2D" uid="uid://dg6ac3jb1366r" path="res://Sprites/globe.svg" id="4_i3fi7"]
-[ext_resource type="Script" uid="uid://ddshg236tlltt" path="res://Scripts/ActiveBuffsManager.cs" id="4_xggvw"]
-[ext_resource type="PackedScene" uid="uid://b417dl07c13uc" path="res://Scenes/Main/buff_button.tscn" id="5_xd21n"]
+[ext_resource type="Script" uid="uid://ddshg236tlltt" path="res://Scripts/Components/ActiveBuffsManager.cs" id="4_xggvw"]
+[ext_resource type="PackedScene" uid="uid://b417dl07c13uc" path="res://Scenes/UI/buff_button.tscn" id="5_xd21n"]
 [ext_resource type="PackedScene" uid="uid://be5d0d3aweg0l" path="res://Scenes/Huts/HutMarker.tscn" id="6_cv8e0"]
-[ext_resource type="Script" uid="uid://dj2wyrq07gfp2" path="res://Scripts/PopulationVisualizer.cs" id="8_cv8e0"]
+[ext_resource type="Script" uid="uid://c6uh5h3sdlg7n" path="res://Scripts/Components/NotificationManager.cs" id="6_iwp64"]
+[ext_resource type="PackedScene" uid="uid://crpf0llofg0sc" path="res://Scenes/UI/notification_label.tscn" id="7_4etfk"]
+[ext_resource type="Script" uid="uid://dj2wyrq07gfp2" path="res://Scripts/Components/PopulationVisualizer.cs" id="8_cv8e0"]
 [ext_resource type="PackedScene" uid="uid://8w7tvsgkev1y" path="res://Scenes/tree.tscn" id="8_hcu3t"]
 [ext_resource type="Resource" uid="uid://8ooxfo2wdbhu" path="res://Resources/Tiers/Followers/follower_tier_1.tres" id="9_hkvnm"]
 [ext_resource type="Shader" uid="uid://bf8nk145fjkgh" path="res://Shaders/corruption_shader.gdshader" id="9_wgovn"]
@@ -19,8 +21,8 @@
 [ext_resource type="Resource" uid="uid://bbkbssvptkyvh" path="res://Resources/Tiers/Huts/hut_tier_1.tres" id="14_18xdc"]
 [ext_resource type="Resource" uid="uid://co2sdpwpajjqi" path="res://Resources/Tiers/Huts/hut_tier_2.tres" id="15_epx8f"]
 [ext_resource type="Resource" uid="uid://b8k30qsd434dp" path="res://Resources/Tiers/Huts/hut_tier_3.tres" id="16_hcu3t"]
-[ext_resource type="Script" uid="uid://furbvcmw31bx" path="res://Scripts/ForestVisualizer.cs" id="18_qdkat"]
-[ext_resource type="Script" uid="uid://cw8gpeaq3yfjn" path="res://Scripts/RoadManager.cs" id="19_qdkat"]
+[ext_resource type="Script" uid="uid://furbvcmw31bx" path="res://Scripts/Components/ForestVisualizer.cs" id="18_qdkat"]
+[ext_resource type="Script" uid="uid://cw8gpeaq3yfjn" path="res://Scripts/Components/RoadManager.cs" id="19_qdkat"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cv8e0"]
 shader = ExtResource("9_wgovn")
@@ -116,6 +118,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("4_xggvw")
 _activeBuffScene = ExtResource("5_xd21n")
+
+[node name="Notification Layer" type="CanvasLayer" parent="."]
+layer = 3
+script = ExtResource("6_iwp64")
+_notificationLabelScene = ExtResource("7_4etfk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -5534,6 +5541,7 @@ position = Vector2(243.12, -124.88)
 [node name="FollowerPopulationVisualizer" type="Node" parent="." node_paths=PackedStringArray("_markersContainer")]
 script = ExtResource("8_cv8e0")
 _markersContainer = NodePath("../Followers Markers")
+_unitsPerMarker = 1
 _tiers = Array[Object]([ExtResource("9_hkvnm"), ExtResource("10_5ci8a"), ExtResource("11_18xdc"), ExtResource("12_epx8f"), ExtResource("13_hcu3t")])
 metadata/_custom_type_script = "uid://dj2wyrq07gfp2"
 

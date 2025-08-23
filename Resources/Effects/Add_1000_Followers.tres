@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="AddResourceEffect" load_steps=2 format=3 uid="uid://bs5iwc5lsdu0r"]
-
-[ext_resource type="Script" uid="uid://flyhl4i86han" path="res://Scripts/Core/Effects/AddResourceEffect.cs" id="1_2o4it"]
-
-[resource]
-script = ExtResource("1_2o4it")
-TargetResource = 1
-Value = 10000.0
-metadata/_custom_type_script = "uid://flyhl4i86han"
