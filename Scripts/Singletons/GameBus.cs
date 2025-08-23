@@ -55,7 +55,7 @@ public partial class GameBus : Node
     {
         _gameLogic.UpdateGameState(_gameState, delta);
         StateChanged?.Invoke(_gameState);
-
+        
         if (_gameState.Get(Stat.Corruption) >= 100)
         {
             GetTree().ChangeSceneToPacked(_gameOverScene);

@@ -13,10 +13,6 @@
       "type": "AddResource",
       "targetResource": "Corruption",
       "value": 3
-    },
-    {
-      "type": "UnlockMiracle",
-      "miraclesToUnlock": [ "unlock_age_of_industry" ]
     }
   ]
 }

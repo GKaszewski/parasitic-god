@@ -6,7 +6,16 @@
   "effects": [
     {
       "type": "UnlockMiracle",
-      "miraclesToUnlock": [ "erect_shrine", "communal_effort", "sustainable_practices", "ritual_of_cleansing", "gods_endurance", "geological_survey" ]
+      "miraclesToUnlock": [
+        "erect_shrine",
+        "communal_effort",
+        "sustainable_practices",
+        "ritual_of_cleansing",
+        "gods_endurance",
+        "geological_survey",
+        "divine_mandate",
+        "unlock_age_of_industry"
+      ]
     },
     { "type": "DestroySelf" }
   ],

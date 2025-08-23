@@ -23,7 +23,9 @@ public partial class ApplyBuffEffect : Effect
         {
             Name = $"{TargetStat} x{Multiplier}",
             Multiplier = Multiplier,
-            Duration = Duration
+            Duration = Duration,
+            TargetStat = TargetStat,
+            BuffId = BuffId
         };
         
         gameState.ActiveBuffs.Add(newBuff);

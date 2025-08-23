@@ -1,0 +1,16 @@
+{
+  "name": "Prosperity Boom",
+  "faithCost": 2000,
+  "followersRequired": 1200,
+  "productionRequired": 800,
+  "unlockedByDefault": false,
+  "effects": [
+    {
+      "type": "ApplyBuff",
+      "buffId": "prosperity_buff",
+      "targetStat": "FollowersPerSecond",
+      "multiplier": 5.0,
+      "duration": 60
+    }
+  ]
+}
