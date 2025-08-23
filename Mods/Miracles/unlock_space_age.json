@@ -1,12 +1,13 @@
 {
   "name": "Age of Space",
-  "faithCost": 10000,
-  "followersRequired": 5000,
+  "faithCost": 25000,
+  "followersRequired": 4000,
+  "productionRequired": 5000,
   "unlockedByDefault": false,
   "effects": [
     {
       "type": "UnlockMiracle",
-      "miraclesToUnlock": [ "global_network" ]
+      "miraclesToUnlock": [ "global_network", "orbital_calculations" ]
     },
     { "type": "DestroySelf" }
   ],

@@ -6,7 +6,7 @@
   "effects": [
     {
       "type": "UnlockMiracle",
-      "miraclesToUnlock": [ "erect_shrine", "communal_effort", "sustainable_practices", "ritual_of_cleansing" ]
+      "miraclesToUnlock": [ "erect_shrine", "communal_effort", "sustainable_practices", "ritual_of_cleansing", "gods_endurance", "geological_survey" ]
     },
     { "type": "DestroySelf" }
   ],

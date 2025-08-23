@@ -1,0 +1,15 @@
+{
+  "name": "Harness the Sun",
+  "faithCost": 4000,
+  "followersRequired": 2500,
+  "productionRequired": 2000,
+  "unlockedByDefault": false,
+  "effects": [
+    {
+      "type": "ApplyBuff",
+      "targetStat": "CorruptionPerSecond",
+      "multiplier": -1.5,
+      "duration": 120
+    }
+  ]
+}

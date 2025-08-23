@@ -2,12 +2,11 @@
   "name": "Launch Ark",
   "faithCost": 100000,
   "followersRequired": 5000,
+  "productionRequired": 10000,
   "unlockedByDefault": false,
   "effects": [
     {
-      "type": "AddResource",
-      "targetResource": "Corruption",
-      "value": 100
+      "type": "Win"
     }
   ]
 }

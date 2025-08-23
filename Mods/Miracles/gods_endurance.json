@@ -1,0 +1,15 @@
+{
+  "name": "God's Endurance",
+  "faithCost": 500,
+  "followersRequired": 400,
+  "productionRequired": 0,
+  "unlockedByDefault": false,
+  "effects": [
+    {
+      "type": "ApplyBuff",
+      "targetStat": "FaithPerFollower",
+      "multiplier": 2.0,
+      "duration": 60
+    }
+  ]
+}

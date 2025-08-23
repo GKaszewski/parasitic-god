@@ -1,0 +1,24 @@
+{
+  "name": "Globalization",
+  "faithCost": 3000,
+  "followersRequired": 1500,
+  "productionRequired": 1000,
+  "unlockedByDefault": false,
+  "effects": [
+    {
+      "type": "ModifyStat",
+      "targetStat": "FaithPerFollower",
+      "op": "Multiply",
+      "value": 1.5
+    },
+    {
+      "type": "ModifyStat",
+      "targetStat": "CorruptionPerSecond",
+      "op": "Add",
+      "value": 0.2
+    },
+    {
+      "type": "DestroySelf"
+    }
+  ]
+}

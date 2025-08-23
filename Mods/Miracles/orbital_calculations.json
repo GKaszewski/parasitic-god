@@ -4,6 +4,10 @@
   "followersRequired": 5000,
   "unlockedByDefault": false,
   "effects": [
+    {
+      "type": "UnlockMiracle",
+      "miraclesToUnlock": [ "launch_ark" ]
+    },
     { "type": "DestroySelf" }
   ]
 }

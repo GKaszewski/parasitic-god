@@ -7,7 +7,15 @@
   "effects": [
     {
       "type": "UnlockMiracle",
-      "miraclesToUnlock": [ "inspire_invention", "exploit_earth" ]
+      "miraclesToUnlock": [
+        "inspire_invention",
+        "exploit_earth",
+        "fossil_fuel_frenzy",
+        "globalization",
+        "harness_the_sun",
+        "tame_the_atom",
+        "unlock_space_age"
+      ]
     },
     { "type": "DestroySelf" }
   ],

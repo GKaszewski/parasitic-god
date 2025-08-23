@@ -1,0 +1,21 @@
+{
+  "name": "Blood Ritual",
+  "faithCost": 0,
+  "followersRequired": 25,
+  "productionRequired": 0,
+  "unlockedByDefault": true,
+  "effects": [
+    {
+      "type": "ConvertResource",
+      "fromResource": "Followers",
+      "fromAmount": 10,
+      "toResource": "Faith",
+      "toAmount": 250
+    },
+    {
+      "type": "AddResource",
+      "targetResource": "Corruption",
+      "value": 5
+    }
+  ]
+}
