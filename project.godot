@@ -23,6 +23,7 @@ config/icon="uid://dihjvrhshhklu"
 GameBus="*res://Scripts/Singletons/GameBus.cs"
 LimboConsole="*res://addons/limbo_console/limbo_console.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+MainThemeMusic="*res://Scenes/main_theme_music.tscn"
 
 [dialogue_manager]
 

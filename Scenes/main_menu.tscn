@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmhvni5njpmee"]
+[gd_scene load_steps=7 format=3 uid="uid://cmhvni5njpmee"]
 
 [ext_resource type="Script" uid="uid://cbdokimy0qarg" path="res://Scripts/MainMenu.cs" id="1_1ehe0"]
 [ext_resource type="FontFile" uid="uid://wofoiaejxgsp" path="res://Fonts/Playful Boxes.otf" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://d2wi2cs20q2b6" path="res://Parasitic_God.png" id="1_48xlc"]
 [ext_resource type="PackedScene" uid="uid://kvpk5wrcp3rv" path="res://Scenes/tutorial_scene.tscn" id="2_ce3w2"]
+[ext_resource type="Script" uid="uid://dvmrpbba7plsf" path="res://Scripts/EnableMainThemeMusic.cs" id="5_n45e2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_48xlc"]
 font = ExtResource("1_28flt")
@@ -65,3 +66,6 @@ text = "Play"
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Exit"
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("5_n45e2")

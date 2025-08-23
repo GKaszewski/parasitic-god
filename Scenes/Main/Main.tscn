@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bfil8sd154327"]
+[gd_scene load_steps=27 format=3 uid="uid://bfil8sd154327"]
 
 [ext_resource type="Script" uid="uid://t71ewkpa5uqs" path="res://Scenes/Main/Main.cs" id="1_p8rbg"]
 [ext_resource type="Script" uid="uid://b77vh831r1e3c" path="res://Scenes/Main/MiraclePanel.cs" id="2_hcu3t"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://cw8gpeaq3yfjn" path="res://Scripts/Components/RoadManager.cs" id="19_qdkat"]
 [ext_resource type="Script" uid="uid://2ipbgwlx1ld1" path="res://Scripts/Components/EventManager.cs" id="22_iwp64"]
 [ext_resource type="PackedScene" uid="uid://gdejd44km3co" path="res://Scenes/UI/event_popup.tscn" id="23_4etfk"]
+[ext_resource type="Script" uid="uid://dvmrpbba7plsf" path="res://Scripts/EnableMainThemeMusic.cs" id="24_4etfk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xggvw"]
 bg_color = Color(0, 0, 0, 0.733333)
@@ -5691,3 +5692,6 @@ script = ExtResource("22_iwp64")
 _eventPopupScene = ExtResource("23_4etfk")
 _eventPopupContainer = NodePath("../Notification Layer/CenterContainer")
 metadata/_custom_type_script = "uid://2ipbgwlx1ld1"
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("24_4etfk")
