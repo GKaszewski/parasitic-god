@@ -13,7 +13,6 @@ public class GameState
     
     public GameState()
     {
-        // Initialize all stats with their default values
         foreach (Stat stat in Enum.GetValues(typeof(Stat)))
         {
             _stats[stat] = new StatData();
