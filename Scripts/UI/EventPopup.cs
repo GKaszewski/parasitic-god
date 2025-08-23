@@ -16,7 +16,12 @@ public partial class EventPopup : PanelContainer
     private EventDefinition _eventDef;
     private Timer _timeoutTimer;
     private readonly RandomNumberGenerator _rng = new();
-    
+
+    public override void _Ready()
+    {
+        ProcessMode = ProcessModeEnum.Always;
+    }
+
     public void DisplayEvent(EventDefinition eventDef)
     {
         _eventDef = eventDef;

@@ -50,7 +50,7 @@ public partial class EventManager : Node
     
     private void FireEvent(EventDefinition eventDef)
     {
-        GetTree().Paused = true;
+        GameBus.Instance.SetPause(true);
 
         var popup = _eventPopupScene.Instantiate<EventPopup>();
         _eventPopupContainer.AddChild(popup);

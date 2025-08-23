@@ -32,6 +32,7 @@ public partial class GameBus : Node
     public event Action PopulationVisualsUpdated;
     public event Action<string> AgeAdvanced;
     public event Action GameWon;
+    public event Action<bool> PauseStateChanged;
 
     public override void _EnterTree()
     {
@@ -133,11 +134,17 @@ public partial class GameBus : Node
         {
             effect.Execute(_gameState);
         }
-        GetTree().Paused = false;
+        SetPause(false);
     }
     
     public void SubscribeToStat(Stat stat, Action<double> listener) => _gameState.Subscribe(stat, listener);
     public void UnsubscribeFromStat(Stat stat, Action<double> listener) => _gameState.Unsubscribe(stat, listener);
+    
+    public void SetPause(bool isPaused)
+    {
+        GetTree().Paused = isPaused;
+        PauseStateChanged?.Invoke(isPaused);
+    }
     
     public GameState CurrentState => _gameState;
     
