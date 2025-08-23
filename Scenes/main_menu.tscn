@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmhvni5njpmee"]
+
+[ext_resource type="Script" uid="uid://cbdokimy0qarg" path="res://Scripts/MainMenu.cs" id="1_1ehe0"]
+[ext_resource type="FontFile" uid="uid://wofoiaejxgsp" path="res://Fonts/Playful Boxes.otf" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://d2wi2cs20q2b6" path="res://Parasitic_God.png" id="1_48xlc"]
+[ext_resource type="PackedScene" uid="uid://bfil8sd154327" path="res://Scenes/Main/Main.tscn" id="2_ce3w2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_48xlc"]
+font = ExtResource("1_28flt")
+font_size = 72
+outline_size = 8
+outline_color = Color(0.48, 0.408, 0, 1)
+
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("_startButton", "_quitButton")]
+script = ExtResource("1_1ehe0")
+_gameScene = ExtResource("2_ce3w2")
+_startButton = NodePath("CenterContainer/VBoxContainer/Play")
+_quitButton = NodePath("CenterContainer/VBoxContainer/Exit")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_48xlc")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+text = "PARASITIC GOD"
+label_settings = SubResource("LabelSettings_48xlc")
+
+[node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 30
+text = "Play"
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Exit"

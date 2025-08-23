@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cxiv86ha7xb6"
-path="res://.godot/imported/comicz.ttf-66a741130a0c8d7e12d809da56e73bbf.fontdata"
+uid="uid://wofoiaejxgsp"
+path="res://.godot/imported/Playful Boxes.otf-113f6b887ec1f2b8d73de65734580dbc.fontdata"
 
 [deps]
 
-source_file="res://Fonts/comicz.ttf"
-dest_files=["res://.godot/imported/comicz.ttf-66a741130a0c8d7e12d809da56e73bbf.fontdata"]
+source_file="res://Fonts/Playful Boxes.otf"
+dest_files=["res://.godot/imported/Playful Boxes.otf-113f6b887ec1f2b8d73de65734580dbc.fontdata"]
 
 [params]
 
