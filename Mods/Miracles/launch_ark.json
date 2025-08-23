@@ -1,6 +1,6 @@
 {
   "name": "Launch Ark",
-  "faithCost": 100000,
+  "faithCost": 25000,
   "followersRequired": 5000,
   "productionRequired": 10000,
   "unlockedByDefault": false,

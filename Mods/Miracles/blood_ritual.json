@@ -8,14 +8,14 @@
     {
       "type": "ConvertResource",
       "fromResource": "Followers",
-      "fromAmount": 10,
+  "fromAmount": 10,
       "toResource": "Faith",
-      "toAmount": 250
+  "toAmount": 100
     },
     {
       "type": "AddResource",
       "targetResource": "Corruption",
-      "value": 5
+  "value": 2
     }
   ]
 }

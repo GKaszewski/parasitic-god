@@ -2,19 +2,19 @@
   "tiers": [
     {
       "tierEnum": "Tier1",
-      "threshold": 1000,
+  "threshold": 200,
       "imagePath": "res://Sprites/Temple.png",
       "scale": { "x": 0.05, "y": 0.05 }
     },
     {
       "tierEnum": "Tier2",
-      "threshold": 3000,
+  "threshold": 600,
       "imagePath": "res://Sprites/temple_tier_2.png",
       "scale": { "x": 0.05, "y": 0.05 }
     },
     {
       "tierEnum": "Tier3",
-      "threshold": 6000,
+  "threshold": 1200,
       "imagePath": "res://Sprites/temple_tier_3.png",
       "scale": { "x": 0.05, "y": 0.05 }
     }

@@ -2,63 +2,63 @@
   "tiers": [
     {
       "tierEnum": "Tier1",
-      "threshold": 150,
+      "threshold": 20,
       "imagePath": "res://Sprites/Hut.png",
-      "scale": {"x": 0.05, "y": 0.05}
+      "scale": { "x": 0.05, "y": 0.05 }
     },
     {
       "tierEnum": "Tier2",
-      "threshold": 750,
+      "threshold": 60,
       "imagePath": "res://Sprites/hut_tier_2.png",
-      "scale": {"x": 0.05, "y": 0.05}
+      "scale": { "x": 0.05, "y": 0.05 }
     },
     {
       "tierEnum": "Tier3",
-      "threshold": 1000,
+      "threshold": 120,
       "imagePath": "res://Sprites/hut_tier_3.png",
-      "scale": {"x": 0.05, "y": 0.05}
+      "scale": { "x": 0.05, "y": 0.05 }
     },
     {
       "tierEnum": "Tier4",
-      "threshold": 5000,
+      "threshold": 250,
       "imagePath": "res://Sprites/castle.png",
-      "scale": {"x": 0.05, "y": 0.05}
+      "scale": { "x": 0.05, "y": 0.05 }
     },
     {
       "tierEnum": "Tier5",
-      "threshold": 7500,
+      "threshold": 400,
       "imagePath": "res://Sprites/house.png",
-      "scale": {"x": 0.05, "y": 0.05}
+      "scale": { "x": 0.05, "y": 0.05 }
     },
     {
       "tierEnum": "Tier6",
-      "threshold": 10000,
+      "threshold": 600,
       "imagePath": "res://Sprites/house_tier_2.png",
-      "scale": {"x": 0.05, "y": 0.05}
+      "scale": { "x": 0.05, "y": 0.05 }
     },
     {
       "tierEnum": "Tier7",
-      "threshold": 50000,
+      "threshold": 1200,
       "imagePath": "res://Sprites/house_tier_3.png",
-      "scale": {"x": 0.05, "y": 0.05}
+      "scale": { "x": 0.05, "y": 0.05 }
     },
     {
       "tierEnum": "Tier8",
-      "threshold": 150000,
+      "threshold": 2500,
       "imagePath": "res://Sprites/Skyscraper.png",
-      "scale": {"x": 0.05, "y": 0.05}
+      "scale": { "x": 0.05, "y": 0.05 }
     },
     {
       "tierEnum": "Tier9",
-      "threshold": 350000,
+      "threshold": 3500,
       "imagePath": "res://Sprites/skyscraper_tier_2.png",
-      "scale": {"x": 0.05, "y": 0.05}
+      "scale": { "x": 0.05, "y": 0.05 }
     },
     {
       "tierEnum": "Tier10",
-      "threshold": 550000,
+      "threshold": 5500,
       "imagePath": "res://Sprites/skyscraper_tier_3.png",
-      "scale": {"x": 0.05, "y": 0.05}
+      "scale": { "x": 0.05, "y": 0.05 }
     }
   ]
 }

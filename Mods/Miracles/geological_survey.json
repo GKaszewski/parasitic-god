@@ -1,6 +1,6 @@
 {
   "name": "Geological Survey",
-  "faithCost": 800,
+  "faithCost": 120,
   "followersRequired": 500,
   "productionRequired": 0,
   "unlockedByDefault": false,
@@ -8,12 +8,12 @@
     {
       "type": "AddResource",
       "targetResource": "Production",
-      "value": 250
+  "value": 80
     },
     {
       "type": "AddResource",
       "targetResource": "Corruption",
-      "value": 8
+  "value": 2
     }
   ]
 }

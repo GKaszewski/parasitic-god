@@ -1,6 +1,6 @@
 {
   "name": "Harness the Sun",
-  "faithCost": 4000,
+  "faithCost": 1200,
   "followersRequired": 2500,
   "productionRequired": 2000,
   "unlockedByDefault": false,
@@ -9,8 +9,8 @@
       "type": "ApplyBuff",
       "buffId": "harness_the_sun",
       "targetStat": "CorruptionPerSecond",
-      "multiplier": -1.5,
-      "duration": 120
+  "multiplier": -1.0,
+  "duration": 60
     }
   ]
 }

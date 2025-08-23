@@ -1,6 +1,6 @@
 {
   "name": "Age of Industry",
-  "faithCost": 1500,
+  "faithCost": 300,
   "followersRequired": 750,
   "productionRequired": 50,
   "unlockedByDefault": false,

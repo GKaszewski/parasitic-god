@@ -1,6 +1,6 @@
 {
   "name": "Divine Mandate",
-  "faithCost": 1500,
+  "faithCost": 300,
   "followersRequired": 350,
   "productionRequired": 100,
   "unlockedByDefault": false,
@@ -9,7 +9,7 @@
       "type": "ModifyStat",
       "targetStat": "FollowersPerSecond",
       "op": "Add",
-      "value": 0.5
+  "value": 0.1
     },
     {
       "type": "DestroySelf"

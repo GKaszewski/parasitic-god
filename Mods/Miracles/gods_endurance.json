@@ -1,6 +1,6 @@
 {
   "name": "God's Endurance",
-  "faithCost": 500,
+  "faithCost": 100,
   "followersRequired": 400,
   "productionRequired": 0,
   "unlockedByDefault": false,
@@ -9,8 +9,8 @@
       "type": "ApplyBuff",
       "buffId": "gods_endurance",
       "targetStat": "FaithPerFollower",
-      "multiplier": 2.0,
-      "duration": 60
+  "multiplier": 1.5,
+  "duration": 30
     }
   ]
 }

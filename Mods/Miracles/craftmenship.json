@@ -1,6 +1,6 @@
 {
   "name": "Craftsmanship",
-  "faithCost": 600,
+  "faithCost": 80,
   "followersRequired": 300,
   "productionRequired": 25,
   "unlockedByDefault": false,
@@ -9,7 +9,7 @@
       "type": "ModifyStat",
       "targetStat": "ProductionPerFollower",
       "op": "Add",
-      "value": 0.05
+  "value": 0.01
     },
     {
       "type": "DestroySelf"

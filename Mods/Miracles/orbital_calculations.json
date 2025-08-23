@@ -1,6 +1,6 @@
 {
   "name": "Project: Trajectory",
-  "faithCost": 50000,
+  "faithCost": 8000,
   "followersRequired": 5000,
   "unlockedByDefault": false,
   "effects": [

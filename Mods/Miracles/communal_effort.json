@@ -1,18 +1,18 @@
 {
   "name": "Communal Effort",
-  "faithCost": 400,
+  "faithCost": 40,
   "followersRequired": 250,
   "unlockedByDefault": false,
   "effects": [
     {
       "type": "AddResource",
       "targetResource": "Production",
-      "value": 50
+  "value": 15
     },
     {
       "type": "AddResource",
       "targetResource": "Corruption",
-      "value": 3
+  "value": 1
     }
   ]
 }

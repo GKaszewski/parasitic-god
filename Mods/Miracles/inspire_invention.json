@@ -1,6 +1,6 @@
 {
   "name": "Inspire Invention",
-  "faithCost": 2500,
+  "faithCost": 600,
   "followersRequired": 1000,
   "unlockedByDefault": false,
   "effects": [
@@ -8,13 +8,13 @@
       "type": "ModifyStat",
       "targetStat": "ProductionPerSecond",
       "op": "Add",
-      "value": 5
+  "value": 2
     },
     {
       "type": "ModifyStat",
       "targetStat": "CorruptionPerSecond",
       "op": "Add",
-      "value": 0.5
+  "value": 0.2
     }
   ]
 }

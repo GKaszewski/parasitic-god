@@ -1,6 +1,6 @@
 {
   "name": "Global Network",
-  "faithCost": 15000,
+  "faithCost": 4000,
   "followersRequired": 5000,
   "unlockedByDefault": false,
   "effects": [

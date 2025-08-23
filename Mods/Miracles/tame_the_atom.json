@@ -1,6 +1,6 @@
 {
   "name": "Tame the Atom",
-  "faithCost": 8000,
+  "faithCost": 3000,
   "followersRequired": 3000,
   "productionRequired": 4000,
   "unlockedByDefault": false,
@@ -9,7 +9,7 @@
       "type": "ModifyStat",
       "targetStat": "CorruptionPerSecond",
       "op": "Add",
-      "value": -0.5
+  "value": -0.8
     },
     {
       "type": "DestroySelf"

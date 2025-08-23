@@ -1,6 +1,6 @@
 {
   "name": "Form Settlement",
-  "faithCost": 300,
+  "faithCost": 30,
   "followersRequired": 150,
   "unlockedByDefault": true,
   "effects": [

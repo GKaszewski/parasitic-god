@@ -1,18 +1,18 @@
 {
   "name": "Bountiful Harvest",
-  "faithCost": 50,
+	"faithCost": 10,
   "followersRequired": 0,
   "unlockedByDefault": true,
   "effects": [
 	{
 	  "type": "AddResource",
 	  "targetResource": "Followers",
-	  "value": 10
+	"value": 5
 	},
 	{
 	  "type": "AddResource",
 	  "targetResource": "Corruption",
-	  "value": 0.5
+	"value": 0.2
 	}
   ]
 }

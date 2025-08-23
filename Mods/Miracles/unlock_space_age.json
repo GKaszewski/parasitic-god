@@ -1,6 +1,6 @@
 {
   "name": "Age of Space",
-  "faithCost": 25000,
+  "faithCost": 6000,
   "followersRequired": 4000,
   "productionRequired": 5000,
   "unlockedByDefault": false,

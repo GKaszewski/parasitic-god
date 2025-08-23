@@ -1,6 +1,6 @@
 {
   "name": "Organized Religion",
-  "faithCost": 4000,
+  "faithCost": 800,
   "followersRequired": 1000,
   "productionRequired": 500,
   "unlockedByDefault": false,
@@ -9,7 +9,7 @@
       "type": "ModifyStat",
       "targetStat": "FaithPerFollower",
       "op": "Multiply",
-      "value": 1.5
+  "value": 1.1
     },
     {
       "type": "DestroySelf"
