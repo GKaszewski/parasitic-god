@@ -45,15 +45,16 @@ public partial class RoadManager : Node2D
         _roadNetwork.ClearPoints();
 
         var activeMarkers = _markersContainer.GetChildren()
-            .OfType<FollowerMarker>()
-            .Where(m => m.IsOccupied && m.FollowerInstance != null &&
-                        m.FollowerInstance.Tier >= _minimumTierForRoads)
+            .OfType<Marker2D>() // We can just look for any Marker2D
+            .Select(m => new { Marker = m, Visual = m.GetChildOrNull<ModdableVisual>(0) })
+            .Where(mv => mv.Visual != null && mv.Visual.Tier >= _minimumTierForRoads)
+            .Select(mv => mv.Marker)
             .ToList();
         
         if (activeMarkers.Count < 2) return;
 
-        var treeNodes = new HashSet<FollowerMarker>();
-        var remainingNodes = new List<FollowerMarker>(activeMarkers);
+        var treeNodes = new HashSet<Node2D>();
+        var remainingNodes = new List<Node2D>(activeMarkers);
         var edges = new List<(Vector2, Vector2)>();
 
         var startNode = remainingNodes[0];
@@ -62,8 +63,8 @@ public partial class RoadManager : Node2D
 
         while (remainingNodes.Any())
         {
-            FollowerMarker bestSource = null;
-            FollowerMarker bestDest = null;
+            Node2D bestSource = null;
+            Node2D bestDest = null;
             var minDistanceSq = float.MaxValue;
             
             foreach (var source in treeNodes)

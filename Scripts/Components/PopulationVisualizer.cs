@@ -120,9 +120,9 @@ public partial class PopulationVisualizer : Node
             }
             else
             {
-                if (marker.IsOccupied)
+                if (marker.GetChildCount() > 0)
                 {
-                    marker.RemoveFollower();
+                    marker.GetChild(0).QueueFree();
                     needsChange = true;
                 }
             }
