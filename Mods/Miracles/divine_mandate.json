@@ -9,7 +9,7 @@
       "type": "ModifyStat",
       "targetStat": "FollowersPerSecond",
       "op": "Add",
-  "value": 0.1
+      "value": 0.1
     },
     {
       "type": "DestroySelf"

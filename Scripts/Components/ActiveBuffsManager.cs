@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Godot;
-using ParasiticGod.Scripts;
 using ParasiticGod.Scripts.Core.Effects;
 using ParasiticGod.Scripts.Singletons;
 

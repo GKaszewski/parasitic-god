@@ -7,7 +7,13 @@
   "effects": [
     {
       "type": "UnlockMiracle",
-      "miraclesToUnlock": [ "global_network", "orbital_calculations" ]
+      "miraclesToUnlock": ["global_network", "orbital_calculations"]
+    },
+    {
+      "type": "ModifyStat",
+      "targetStat": "FollowersPerSecond",
+      "op": "Add",
+      "value": 1.0
     },
     { "type": "DestroySelf" }
   ],

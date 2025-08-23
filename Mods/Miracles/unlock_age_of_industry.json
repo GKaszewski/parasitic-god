@@ -19,6 +19,12 @@
         "unlock_space_age"
       ]
     },
+    {
+      "type": "ModifyStat",
+      "targetStat": "FollowersPerSecond",
+      "op": "Add",
+      "value": 0.75
+    },
     { "type": "DestroySelf" }
   ],
   "advancesToAge": "The Industrial Age"

@@ -18,6 +18,12 @@
         "unlock_age_of_industry"
       ]
     },
+    {
+      "type": "ModifyStat",
+      "targetStat": "FollowersPerSecond",
+      "op": "Add",
+      "value": 0.5
+    },
     { "type": "DestroySelf" }
   ],
   "advancesToAge": "The Settlement Age"

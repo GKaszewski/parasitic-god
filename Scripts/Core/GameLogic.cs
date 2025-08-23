@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Godot;
 using ParasiticGod.Scripts.Singletons;
 
 namespace ParasiticGod.Scripts.Core;

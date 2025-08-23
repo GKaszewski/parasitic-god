@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using ParasiticGod.Scripts.Core.Effects;
+using static System.Double;
 
 namespace ParasiticGod.Scripts.Core;
 
@@ -30,7 +31,7 @@ public class GameState
     
     public double Get(Stat stat) => _stats[stat].Value;
     
-    public void Set(Stat stat, double value) => _stats[stat].Set(value);
+    public void Set(Stat stat, double value) => _stats[stat].Set(Math.Clamp(value, 0, MaxValue));
     
     public void Modify(Stat stat, double delta) => _stats[stat].Set(Get(stat) + delta);
     
