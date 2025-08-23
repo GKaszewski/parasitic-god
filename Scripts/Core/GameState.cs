@@ -7,6 +7,7 @@ namespace ParasiticGod.Scripts.Core;
 public class GameState
 {
     private readonly Dictionary<Stat, StatData> _stats = new();
+    private readonly Dictionary<string, MiracleDefinition> _miraclesInHand = new();
     
     public List<Buff> ActiveBuffs { get; } = [];
     
@@ -34,4 +35,6 @@ public class GameState
     public void Subscribe(Stat stat, Action<double> listener) => _stats[stat].OnChanged += listener;
     
     public void Unsubscribe(Stat stat, Action<double> listener) => _stats[stat].OnChanged -= listener;
+    
+    public Dictionary<string, MiracleDefinition> MiraclesInHand() => _miraclesInHand;
 }

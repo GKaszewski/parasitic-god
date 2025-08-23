@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2baysanqtp8g"]
+
+[ext_resource type="Texture2D" uid="uid://c46t8kj1gb5qd" path="res://Sprites/castle.png" id="1_42k1r"]
+
+[node name="CastleTier1" type="Sprite2D"]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_42k1r")

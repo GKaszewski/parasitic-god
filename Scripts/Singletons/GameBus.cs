@@ -65,13 +65,16 @@ public partial class GameBus : Node
                     {
                         if (AllMiracles.TryGetValue(id, out var def))
                         {
+                            if (miraclesToUnlock.Contains(def) || _gameState.MiraclesInHand().ContainsKey(id)) continue;
                             miraclesToUnlock.Add(def);
+                            _gameState.MiraclesInHand().Add(id, def);
                         }
                     }
                 }
                 else if (effect is DestroySelfEffect)
                 {
                     MiracleCompleted?.Invoke(miracle);
+                    _gameState.MiraclesInHand().Remove(miracle.Id);
                 }
             }
 
