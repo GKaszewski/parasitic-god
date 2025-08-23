@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bfil8sd154327"]
+[gd_scene load_steps=24 format=3 uid="uid://bfil8sd154327"]
 
 [ext_resource type="Script" uid="uid://t71ewkpa5uqs" path="res://Scenes/Main/Main.cs" id="1_p8rbg"]
 [ext_resource type="Script" uid="uid://b77vh831r1e3c" path="res://Scenes/Main/MiraclePanel.cs" id="2_hcu3t"]
@@ -16,10 +16,14 @@
 [ext_resource type="PackedScene" uid="uid://8w7tvsgkev1y" path="res://Scenes/tree.tscn" id="8_hcu3t"]
 [ext_resource type="Shader" uid="uid://bf8nk145fjkgh" path="res://Shaders/corruption_shader.gdshader" id="9_wgovn"]
 [ext_resource type="PackedScene" uid="uid://cqkye7yykakns" path="res://Scenes/Followers/FollowerMarker.tscn" id="11_5ci8a"]
+[ext_resource type="Script" uid="uid://djmtle2h3yd2e" path="res://Scripts/Components/PauseManager.cs" id="11_xggvw"]
 [ext_resource type="PackedScene" uid="uid://wysxqe44rxhf" path="res://Scenes/TempleMarker.tscn" id="14_udh0u"]
 [ext_resource type="PackedScene" uid="uid://xk2xirjd1sma" path="res://Scenes/moddable_visual.tscn" id="17_qdkat"]
 [ext_resource type="Script" uid="uid://furbvcmw31bx" path="res://Scripts/Components/ForestVisualizer.cs" id="18_qdkat"]
 [ext_resource type="Script" uid="uid://cw8gpeaq3yfjn" path="res://Scripts/Components/RoadManager.cs" id="19_qdkat"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xggvw"]
+bg_color = Color(0, 0, 0, 0.733333)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cv8e0"]
 shader = ExtResource("9_wgovn")
@@ -132,6 +136,48 @@ _sfx = NodePath("Advance Age")
 
 [node name="Advance Age" type="AudioStreamPlayer" parent="Notification Layer"]
 stream = ExtResource("8_4etfk")
+
+[node name="PauseManager" type="CanvasLayer" parent="." node_paths=PackedStringArray("_pauseButton", "_pauseMenu")]
+script = ExtResource("11_xggvw")
+_pauseButton = NodePath("MarginContainer/Button")
+_pauseMenu = NodePath("PanelContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseManager"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Button" type="Button" parent="PauseManager/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+focus_mode = 0
+text = "Pause"
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseManager"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xggvw")
+
+[node name="Label" type="Label" parent="PauseManager/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
