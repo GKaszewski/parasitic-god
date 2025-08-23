@@ -3,17 +3,14 @@
     {
       "tierEnum": "Tier1",
       "threshold": 150,
-      "scenePath": "res://Scenes/Huts/hut_tier_1.tscn"
+      "imagePath": "user://Mods/Tiers/Huts/hut_tier_1.png",
+      "scale": {"x": 0.01, "y": 0.01}
     },
     {
       "tierEnum": "Tier2",
       "threshold": 750,
-      "scenePath": "res://Scenes/Huts/hut_tier_2.tscn"
-    },
-    {
-      "tierEnum": "Tier3",
-      "threshold": 2000,
-      "scenePath": "res://Scenes/Huts/hut_tier_3.tscn"
+      "imagePath": "user://Mods/Tiers/Huts/hut_tier_2.png",
+      "scale": {"x": 0.01, "y": 0.01}
     }
   ]
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bfil8sd154327"]
+[gd_scene load_steps=21 format=3 uid="uid://bfil8sd154327"]
 
 [ext_resource type="Script" uid="uid://t71ewkpa5uqs" path="res://Scenes/Main/Main.cs" id="1_p8rbg"]
 [ext_resource type="Script" uid="uid://b77vh831r1e3c" path="res://Scenes/Main/MiraclePanel.cs" id="2_hcu3t"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://8w7tvsgkev1y" path="res://Scenes/tree.tscn" id="8_hcu3t"]
 [ext_resource type="Shader" uid="uid://bf8nk145fjkgh" path="res://Shaders/corruption_shader.gdshader" id="9_wgovn"]
 [ext_resource type="PackedScene" uid="uid://cqkye7yykakns" path="res://Scenes/Followers/FollowerMarker.tscn" id="11_5ci8a"]
+[ext_resource type="PackedScene" uid="uid://xk2xirjd1sma" path="res://Scenes/moddable_visual.tscn" id="17_qdkat"]
 [ext_resource type="Script" uid="uid://furbvcmw31bx" path="res://Scripts/Components/ForestVisualizer.cs" id="18_qdkat"]
 [ext_resource type="Script" uid="uid://cw8gpeaq3yfjn" path="res://Scripts/Components/RoadManager.cs" id="19_qdkat"]
 
@@ -5549,6 +5550,7 @@ position = Vector2(243.12, -124.88)
 script = ExtResource("8_cv8e0")
 _markersContainer = NodePath("../Followers Markers")
 _unitsPerMarker = 1
+_moddableVisualScene = ExtResource("17_qdkat")
 metadata/_custom_type_script = "uid://dj2wyrq07gfp2"
 
 [node name="HutPopulationVisualizer" type="Node" parent="." node_paths=PackedStringArray("_markersContainer")]
@@ -5556,6 +5558,7 @@ script = ExtResource("8_cv8e0")
 _markersContainer = NodePath("../Hut Markers")
 _unitsPerMarker = 1
 Category = 1
+_moddableVisualScene = ExtResource("17_qdkat")
 metadata/_custom_type_script = "uid://dj2wyrq07gfp2"
 
 [node name="ForestVisualizer" type="Node" parent="." node_paths=PackedStringArray("_treesContainer")]

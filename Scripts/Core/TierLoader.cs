@@ -27,11 +27,18 @@ public static class TierLoader
 
         foreach (var dto in tierListDto.Tiers)
         {
+            var image = Image.LoadFromFile(dto.ImagePath);
+            if (image == null)
+            {
+                GD.PushError($"Failed to load image at path: {dto.ImagePath}");
+                continue;
+            }
             var tierDef = new TierDefinition
             {
                 Threshold = dto.Threshold,
                 TierEnum = dto.TierEnum,
-                Scene = GD.Load<PackedScene>(dto.ScenePath) 
+                Texture = ImageTexture.CreateFromImage(image),
+                Scale = new Vector2(dto.Scale.X, dto.Scale.Y)
             };
             loadedTiers.Add(tierDef);
         }

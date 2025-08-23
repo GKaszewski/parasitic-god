@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://xk2xirjd1sma"]
+
+[ext_resource type="Script" uid="uid://dpfcbaqgq3l6d" path="res://Scripts/Components/ModdableVisual.cs" id="1_5b1dg"]
+
+[node name="ModdableVisual" type="Node2D" node_paths=PackedStringArray("_sprite")]
+script = ExtResource("1_5b1dg")
+_sprite = NodePath("Sprite")
+
+[node name="Sprite" type="Sprite2D" parent="."]

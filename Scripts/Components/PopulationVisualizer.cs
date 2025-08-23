@@ -14,6 +14,7 @@ public partial class PopulationVisualizer : Node
     [Export] private Node2D _markersContainer;
     [Export] private int _unitsPerMarker = 5;
     [Export] public VisualCategory Category { get; private set; }
+    [Export] private PackedScene _moddableVisualScene;
     
     private List<TierDefinition> _tiers;
     private readonly List<FollowerMarker> _markers = [];
@@ -105,11 +106,15 @@ public partial class PopulationVisualizer : Node
 
             if (i < followersToShow)
             {
-                if (!marker.IsOccupied || _lastKnownTierIndex != newTierIndex)
+                var currentVisual = marker.GetChildOrNull<ModdableVisual>(0);
+                if (currentVisual == null || currentVisual.Tier != currentTier.TierEnum)
                 {
-                    if (marker.IsOccupied) marker.RemoveFollower();
-                    var followerInstance = currentTier.Scene.Instantiate<Follower>();
-                    marker.PlaceFollower(followerInstance);
+                    if (marker.GetChildCount() > 0) marker.GetChild(0).QueueFree();
+
+                    var visualInstance = _moddableVisualScene.Instantiate<ModdableVisual>();
+                    visualInstance.Initialize(currentTier.TierEnum, currentTier.Texture, currentTier.Scale);
+                    
+                    marker.AddChild(visualInstance);
                     needsChange = true;
                 }
             }
