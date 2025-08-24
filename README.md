@@ -28,85 +28,103 @@ Unlock new ages of technology, build a network of cities, and perform the final,
 * **Strategic Resource Management**
   Balance the generation of multiple resources and make difficult choices. Will you sacrifice followers to purge corruption, or push for industrial growth at any cost?
 
-## Modding Your Universe
+## **Modding Your Universe**
 
-This game was built from the ground up to be modified. You can add new miracles, change existing ones, and even define new visual tiers for your civilization.
+This game was built from the ground up to be modified. You can add new miracles, create random events, and even define new visual tiers for your civilization.
 
-### Finding the Mods Folder
+### **Finding the Mods Folder**
 
-First, you need to find the game's `user data` directory. The game will create a `Mods` folder here on its first launch.
+First, you need to find the game's user data directory. The game will create a Mods folder here on its first launch.
 
-* **Windows:** `%APPDATA%\Godot\app_userdata\ParasiticGod\Mods\`
-* **macOS:** `~/Library/Application Support/Godot/app_userdata/ParasiticGod/Mods/`
-* **Linux:** `~/.local/share/godot/app_userdata/ParasiticGod/Mods/`
+* **Windows:** %APPDATA%\\Godot\\app\_userdata\\ParasiticGod\\Mods\\
+* **macOS:** \~/Library/Application Support/Godot/app\_userdata/ParasiticGod/Mods/
+* **Linux:** \~/.local/share/godot/app\_userdata/ParasiticGod/Mods/
 
-Inside, you'll find two folders: `Miracles` and `Tiers`.
+Inside, you'll find three folders: Miracles, Tiers, and Events. The game also loads a set of base mods from its installation directory (res://Mods), and any files you place in the user folder will be added to or will override the base game's content.
 
-### Creating a New Miracle
+### **Creating a New Miracle**
 
-To add a new miracle, simply create a new `.json` file in the `Mods/Miracles` folder. The filename will be its unique **ID** (e.g., `my_cool_miracle.json`).
+To add a new miracle, simply create a new .json file in the Mods/Miracles folder. The filename will be its unique **ID** (e.g., my\_cool\_miracle.json).
 
-Here is a template with all available fields:
-
-```json
-{
-  "name": "My Cool Miracle",
-  "faithCost": 100,
-  "followersRequired": 50,
-  "productionRequired": 0,
-  "unlockedByDefault": true,
-  "advancesToAge": "",
-  "effects": [
-    {
-      "type": "AddResource",
-      "targetResource": "Faith",
-      "value": 200
-    }
-  ]
+{  
+"name": "My Cool Miracle",  
+"faithCost": 100,  
+"followersRequired": 50,  
+"productionRequired": 0,  
+"unlockedByDefault": true,  
+"advancesToAge": "The Cool Age",  
+"effects": \[  
+{  
+"type": "AddResource",  
+"targetResource": "Faith",  
+"value": 200  
+}  
+\]  
 }
-```
 
-### Available Effect Types
+### **Creating a New Event**
 
-This is the core of the modding system. Each miracle can have one or more effects.
+To add a new random event, create a .json file in the Mods/Events folder.
+
+{  
+"id": "event\_my\_event",  
+"title": "A Thing Happened\!",  
+"description": "Something unexpected occurred. What will you do?",  
+"meanTimeToHappen": 120,  
+"trigger": {  
+"minFollowers": 100,  
+"maxCorruption": 50  
+},  
+"options": \[  
+{  
+"text": "Do the thing\!",  
+"tooltip": "Gain 50 Production.",  
+"effects": \[  
+{  
+"type": "AddResource",  
+"targetResource": "Production",  
+"value": 50  
+}  
+\]  
+}  
+\]  
+}
+
+### **Modifying Visual Tiers**
+
+You can change the visual progression of followers, huts, and temples by editing the files in Mods/Tiers. The format is a list of tiers, sorted by their threshold.
+
+{  
+"tiers": \[  
+{  
+"tierEnum": "Tier1",  
+"threshold": 0,  
+"imagePath": "user://Mods/Tiers/Huts/my\_custom\_hut.png",  
+"scale": { "x": 1.0, "y": 1.0 }  
+}  
+\]  
+}
+
+* **tierEnum**: Must be one of Tier1 through Tier10.
+* **threshold**: The number of followers needed to unlock this visual.
+* **imagePath**: The path to the image file. Can be a user:// path for mods or a res:// path for base game assets.
+* **scale**: An optional X/Y scale multiplier for the image.
+
+### **Available Effect Types**
+
+This is the core of the modding system. Both miracles and event options use this list of effects.
 
 | Type | Description | Parameters |
-| :--- | :--- | :--- |
-| **`AddResource`** | Adds or subtracts from a core stat. | `targetResource` (Stat), `value` (number) |
-| **`ConvertResource`** | Trades one resource for another. | `fromResource` (Stat), `fromAmount` (number), `toResource` (Stat), `toAmount` (number) |
-| **`ModifyStat`** | Permanently changes a passive stat. | `targetStat` (Stat), `op` ("Add" or "Multiply"), `value` (number) |
-| **`ApplyBuff`** | Applies a temporary multiplier. | `targetStat` (Stat), `multiplier` (number), `duration` (seconds) |
-| **`UnlockMiracle`** | Unlocks other miracles. | `miraclesToUnlock` (list of miracle IDs) |
-| **`DestroySelf`** | Removes the miracle's button after use. | (No parameters) |
+| :---- | :---- | :---- |
+| **AddResource** | Adds or subtracts from a core stat. | targetResource (Stat), value (number) |
+| **ConvertResource** | Trades one resource for another. | fromResource (Stat), fromAmount (number), toResource (Stat), toAmount (number) |
+| **ModifyStat** | Permanently changes a passive stat. | targetStat (Stat), op ("Add" or "Multiply"), value (number) |
+| **ApplyBuff** | Applies a temporary multiplier. | buffId (string), targetStat (Stat), multiplier (number), duration (seconds) |
+| **UnlockMiracle** | Unlocks other miracles. | miraclesToUnlock (list of miracle IDs) |
+| **DestroySelf** | Removes the miracle's button after use. | (No parameters) |
+| **Win** | Triggers the game's win condition. | (No parameters) |
 
-**Valid Stat Names:** `Faith`, `Followers`, `Corruption`, `Production`, `ProductionPerSecond`, `CorruptionPerSecond`, `FaithPerFollower`.
-
-### Modifying Tiers
-
-You can change the progression of visuals like followers and huts by editing the files in `Mods/Tiers`. For example, to change when followers get new looks, edit `follower_tiers.json`.
-
-The format is a list of tiers, sorted by their threshold.
-
-```json
-{
-  "tiers": [
-    {
-      "tierEnum": "Tier1",
-      "threshold": 0,
-      "scenePath": "res://Scenes/Followers/followers_tier_1.tscn"
-    },
-    {
-      "tierEnum": "Tier2",
-      "threshold": 200,
-      "scenePath": "res://Scenes/Followers/followers_tier_2.tscn"
-    }
-  ]
-}
-```
-
-* **`tierEnum`**: Must be one of `Tier1`, `Tier2`, `Tier3`, `Tier4`, `Tier5`.
-* **`threshold`**: The number of followers (or other stat) needed to unlock this visual.
-* **`scenePath`**: The path to the Godot scene (`.tscn`) to display for this tier. You can even point to your own custom scenes if you're an advanced modder\!
+**Valid Stat Names:** Faith, Followers, Corruption, Production, ProductionPerSecond, CorruptionPerSecond, FollowersPerSecond, FaithPerFollower, ProductionPerFollower.
 
 -----
 
