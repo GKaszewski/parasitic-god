@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Parasitic God"
+config/version="1.0"
 run/main_scene="uid://cmhvni5njpmee"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
 boot_splash/show_image=false
