@@ -169,7 +169,7 @@ Both miracles and event options use this list of effects:
 
 ## License
 
-This project is open source. See the [LICENSE](./LICENSE) file for details.
+This project is open source. See the [LICENSE](./LICENSE.txt) file for details.
 
 ---
 
